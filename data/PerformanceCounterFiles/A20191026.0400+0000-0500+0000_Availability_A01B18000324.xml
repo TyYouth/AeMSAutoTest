@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="MeasDataCollection.xsl"?>
+<measCollecFile xmlns="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec">
+    <fileHeader fileFormatVersion="32.435 V12.0" vendorName="Casa Systems">
+        <fileSender elementType="NodeB"/>
+        <measCollec beginTime="2019-10-26T04:00:00+00:00"/>
+    </fileHeader>
+    <measData>
+        <managedElement localDn="LocalDn" swVersion="master"/>
+        <measInfo>
+            <job jobId="Availability"/>
+            <granPeriod duration="PT3600S" endTime="2019-10-26T05:00:00+00:00"/>
+            <repPeriod duration="PT3600S"/>
+            <measTypes>RRU.CellAvailableTime RRU.CellUnavailableTime.ManualIntervention RRU.CellUnavailableTime.Fault RRU.CellUnavailableTime.EnergySaving RRU.CellUnavailableTime.Sum</measTypes>
+            <measValue measObjLdn="">
+                <measResults>3600 0 0 0 0</measResults>
+            </measValue>
+        </measInfo>
+    </measData>
+    <fileFooter>
+        <measCollec endTime="2019-10-26T05:00:00+00:00"/>
+    </fileFooter>
+</measCollecFile>

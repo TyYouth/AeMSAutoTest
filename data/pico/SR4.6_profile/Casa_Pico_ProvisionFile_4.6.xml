@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NodeConfig> 
+  <Unique> 
+    <DeviceInfo>  
+      <CascadeId>Pico-1358</CascadeId>  
+      <Site>7</Site>  
+      <RegionId>West</RegionId>  
+      <Hardware>1</Hardware>  
+      <SoftwareVersion>4.6.11.10</SoftwareVersion>    
+      <Description>Sprint_Pico_cell</Description> 
+    </DeviceInfo>  
+    <ENBFunction> 
+      <eNBId>5</eNBId> 
+	  <eNBName>pico-1358</eNBName>
+	  <EUtranCellTDD> 
+	  <cellLocalId>158</cellLocalId> 
+	  </EUtranCellTDD>
+    </ENBFunction> 
+	<ManagementServer>
+	<ConnectionRequestPassword>casa</ConnectionRequestPassword>
+	<ConnectionRequestUsername>casa</ConnectionRequestUsername>
+	</ManagementServer>
+	<EPC> 
+	<MMEFunction> 
+		<S1SigLinkServerList>172.0.11.41</S1SigLinkServerList>
+	</MMEFunction> 
+	</EPC> 
+  </Unique>  
+  <Profiles>  
+  	<EPCProfile>Anaheim_Burbank_Phoenix_MME_Pool_SR4.6</EPCProfile>   
+	<RadioProfile>Radio_B41_41176_SR4.6</RadioProfile>
+  	<MobilityProfile>Boston_Mobility_SR4.6</MobilityProfile>
+	<CSGProfile>CSG_SR4.6</CSGProfile>
+	<GPSProfile>GPS_SR4.6</GPSProfile>
+	<GTPProfile>GTP_SR4.6</GTPProfile>
+	<MobilityCDMA2000Profile>MobilityCDMA2000_SR4.6</MobilityCDMA2000Profile>
+	<SONProfile>Boston_SON_SR4.6</SONProfile>
+	<SecurityManagementProfile>SecurityManagement_SR4.6</SecurityManagementProfile>
+	<SCTPProfile>SCTP_SR4.6</SCTPProfile>
+	<REMProfile>REM_SR4.6</REMProfile>
+	<RadioAdvancedProfile>RadioAdvanced_SR4.6</RadioAdvancedProfile>
+	<QOSProfile>QoS_SR4.6</QOSProfile>
+	<NeighborListCDMA2000Profile>NeighbourListCDMA2000_SR4.6</NeighborListCDMA2000Profile>
+	<TR069Profile>TR069_SR4.6</TR069Profile>
+	<TimeSyncProfile>TimeSync_GNSS_SR4.6</TimeSyncProfile>
+	<PerfMgmtProfile>PerfMgmt_SR4.6</PerfMgmtProfile>
+	<NeighborListProfile>NeighbourList_SR4.6</NeighborListProfile>
+	<Self-HealingProfile>Self-HealingProfile_SR4.6</Self-HealingProfile>
+  </Profiles> 
+</NodeConfig>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+profile type,profile name,parameter name,parameter value
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.cellLocalId,0
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.plmnIdList,"[310120,310125,450450]"
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.plmnIdListEnable,"[1,1,1]"
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.plmnIdReservedforOperatorList,0
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.EAID,0
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.referenceSignalPower,-50
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.DLBandwidth,100
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.ULBandwidth,100
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.earfcnDl,41176
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.sfAssignment,2
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.specialSfPatterns,7
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.CellRestriction.CellBarred,0
+RadioProfile,Radio_B41_41176_SR4.5,ENBFunction.EUtranCellTDD.tac,8738

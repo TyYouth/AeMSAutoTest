@@ -1,0 +1,9 @@
+{
+	"femtoconfig.ini": {
+		"is_use_ipv6": 0,
+		"ipsec":0
+	},
+	"ipsec.conf": {
+		"leftid": "ssss"
+	}
+}

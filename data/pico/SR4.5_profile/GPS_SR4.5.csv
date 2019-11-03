@@ -1,0 +1,8 @@
+profile type,profile name,parameter name,parameter value
+GPSProfile,GPS_SR4.5,GPS.ContinuousGPS,0
+GPSProfile,GPS_SR4.5,GPS.PeriodicInterval,86400
+GPSProfile,GPS_SR4.5,GPS.PeriodicTime,2019-01-01T00:00:00Z
+GPSProfile,GPS_SR4.5,GPS.Reset,0
+GPSProfile,GPS_SR4.5,GPS.ScanOnBoot,0
+GPSProfile,GPS_SR4.5,GPS.ScanPeriodically,0
+GPSProfile,GPS_SR4.5,GPS.ScanTimeout,0

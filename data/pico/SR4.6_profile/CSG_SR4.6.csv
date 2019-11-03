@@ -1,0 +1,6 @@
+profile type,profile name,parameter name,parameter value
+CSGProfile,CSG_SR4.6,ENBFunction.AccessMode,Open Access
+CSGProfile,CSG_SR4.6,ENBFunction.CSGID,0
+CSGProfile,CSG_SR4.6,ENBFunction.MaxCSGMembers,-1
+CSGProfile,CSG_SR4.6,ENBFunction.MaxNonCSGMembers,-1
+CSGProfile,CSG_SR4.6,ENBFunction.MaxResourceNonCSGMembers,100

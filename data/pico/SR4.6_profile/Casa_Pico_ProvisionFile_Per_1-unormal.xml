@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NodeConfig> 
+  <Unique> 
+    <DeviceInfo>  
+      <CascadeId>pico-repeat_1</CascadeId>  
+      <Site>1</Site>  
+      <RegionId>Group_rep</RegionId>  
+      <Hardware>1</Hardware>  
+      <SoftwareVersion>4.6</SoftwareVersion>    
+      <Description>Hi</Description> 
+    </DeviceInfo>  
+    <ENBFunction> 
+      <eNBId>5</eNBId> 
+	  <eNBName>pico-Per_1</eNBName>
+	  <EUtranCellTDD> 
+		<cellLocalId>35</cellLocalId> 
+	  </EUtranCellTDD>
+    </ENBFunction> 
+	<ManagementServer>
+	<ConnectionRequestPassword>casa</ConnectionRequestPassword>
+	<ConnectionRequestUsername>casa</ConnectionRequestUsername>
+	</ManagementServer>
+	<EPC> 
+	<MMEFunction> 
+		<S1SigLinkServerList>172.0.11.41</S1SigLinkServerList>
+	</MMEFunction> 
+	</EPC> 
+  </Unique>  
+  <Profiles> 
+  	<EPCProfile>Anaheim_Burbank_Phoenix_MME_Pool_SR4.6</EPCProfile>   
+	<EPCProfile>Anaheim_Burbank_Phoenix_MME_Pool_SR4.6</EPCProfile>   
+	<RadioProfile>Radio_B41_41176_SR4.6</RadioProfile> 
+	<RadioProfile>Radio_B41_41176_SR4.6</RadioProfile>  
+  </Profiles> 
+</NodeConfig>
+
+
+
+
+
+

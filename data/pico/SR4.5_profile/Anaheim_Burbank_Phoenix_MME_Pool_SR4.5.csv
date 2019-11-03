@@ -1,0 +1,4 @@
+profile type,profile name,parameter name,parameter value
+EPCProfile,Anaheim_Burbank_Phoenix_MME_Pool_SR4.5,EPC.MMEFunction.S1ConnectionMode,All
+EPCProfile,Anaheim_Burbank_Phoenix_MME_Pool_SR4.5,EPC.MMEFunction.S1SigLinkPort,36412
+EPCProfile,Anaheim_Burbank_Phoenix_MME_Pool_SR4.5,EPC.MMEFunction.S1SigLinkServerList,"172.0.11.41"

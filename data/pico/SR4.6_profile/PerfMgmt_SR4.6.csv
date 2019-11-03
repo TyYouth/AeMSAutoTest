@@ -1,0 +1,6 @@
+profile type,profile name,parameter name,parameter value
+PerfMgmtProfile,PerfMgmt_SR4.6,PerfMgmt.Alias,cpe-perfmgmt
+PerfMgmtProfile,PerfMgmt_SR4.6,PerfMgmt.Enable,1
+PerfMgmtProfile,PerfMgmt_SR4.6,PerfMgmt.Password,pass
+PerfMgmtProfile,PerfMgmt_SR4.6,PerfMgmt.PeriodicUploadInterval,900
+PerfMgmtProfile,PerfMgmt_SR4.6,PerfMgmt.Username,user

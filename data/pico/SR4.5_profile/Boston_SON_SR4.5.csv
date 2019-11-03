@@ -1,0 +1,22 @@
+profile type,profile name,parameter name,parameter value
+SONProfile,Boston_SON_SR4.5,anrEnabled,1
+SONProfile,Boston_SON_SR4.5,pciEnabled,1
+SONProfile,Boston_SON_SR4.5,mroEnabled,
+SONProfile,Boston_SON_SR4.5,roEnabled,1
+SONProfile,Boston_SON_SR4.5,ANRConfig.maxEutraNeighbours,64
+SONProfile,Boston_SON_SR4.5,ANRConfig.maxUtraNeighbours,64
+SONProfile,Boston_SON_SR4.5,ANRConfig.persistencyEnabled,1
+SONProfile,Boston_SON_SR4.5,ANRConfig.rsrpThreshold,30
+SONProfile,Boston_SON_SR4.5,ANRConfig.neighbourRemovalPolicy,highest_inactivity
+SONProfile,Boston_SON_SR4.5,ANRConfig.inactivityTimeoutThreshold,86400
+SONProfile,Boston_SON_SR4.5,ANRConfig.ipConflictResolutionEnabled,1
+SONProfile,Boston_SON_SR4.5,ANRConfig.henbDiscriminatorType,pci
+SONProfile,Boston_SON_SR4.5,ANRConfig.henbDiscriminatorPciRange,"488,503"
+SONProfile,Boston_SON_SR4.5,ANRConfig.henbDiscriminatorEarfcnRange,
+SONProfile,Boston_SON_SR4.5,ANRConfig.henbDiscriminatorCellIdRange,
+SONProfile,Boston_SON_SR4.5,ANRConfig.hoFailuresBlackListThreshold,5
+SONProfile,Boston_SON_SR4.5,ANRConfig.blacklistRemovalPeriod,300
+SONProfile,Boston_SON_SR4.5,PCIConfig.pciRange,"0,63"
+SONProfile,Boston_SON_SR4.5,PCIConfig.persistencyEnabled,1
+SONProfile,Boston_SON_SR4.5,PCIConfig.conflictHandling,detection_and_resolution
+SONProfile,Boston_SON_SR4.5,PCIConfig.conflictResolutionPolicy,lowest_cell_id

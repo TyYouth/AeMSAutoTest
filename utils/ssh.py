@@ -1,2 +1,87 @@
 #!/usr/bin/env python
-# coding=utf-8
+# -*- coding: utf-8 -*-
+import select
+import paramiko
+import socket
+from scp import SCPClient
+from time import sleep
+from utils.log import logger
+
+
+def to_str(bytes_or_str):
+    string_value = bytes_or_str
+    if isinstance(bytes_or_str, bytes):
+        string_value = bytes_or_str.decode('utf-8')
+    return string_value
+
+
+class SShSession(object):
+    def __init__(self, host, user_name, pwd, port=22):
+        self.host = host
+        self.port = port
+        self.user_name = user_name
+        self.pwd = pwd
+        self.__transport = None
+        self.scp_client = None
+
+    def connect(self):
+        try:
+            host_port = (self.host, self.port)
+            transport = paramiko.Transport(host_port)
+            transport.connect(username=self.user_name, password=self.pwd)
+            self.__transport = transport
+            # the henb is not support SFTP and init transport as SCP"
+            self.scp_client = SCPClient(self.__transport)
+        except Exception as e:
+            logger.exception(e)
+
+    def upload_file(self, local_file, target_file_path):
+        self.scp_client.put(local_file, target_file_path)
+
+    def download_file(self, remote_file_path, target_file_path):
+        self.scp_client.get(remote_file_path, target_file_path)
+
+    def run_cmd(self, command=None):
+        ssh_session = paramiko.SSHClient()
+        ssh_session.set_missing_host_key_policy(paramiko.AutoAddPolicy)
+        ssh_session._transport = self.__transport
+        stdin, stdout, stderr = ssh_session.exec_command(command)
+        output = to_str(stdout.read())
+        error = to_str(stderr.read())
+        if error:
+            logger.error(error.strip())
+            return error.strip()
+        else:
+            logger.debug("The result of command '{}' is: {}".format(command, output.strip()))
+            return output.strip()
+
+    def run_command_shell(self, *commands):
+        receive = None
+        channel = self.__transport.open_session()
+        channel.get_pty()
+        channel.invoke_shell()
+        for command in commands:
+            channel.send(command + '\n')
+        sleep(0.5)
+        if channel.recv_ready():
+            receive = channel.recv(65535)
+        channel.close()
+        logger.debug(receive.decode('UTF-8'))
+
+    def close(self):
+        self.__transport.close()
+
+    def __destroy(self):
+        self.close()
+
+
+if __name__ == '__main__':
+    host = '172.0.13.185'
+    username = 'root'
+    pwd = 'casa'
+    henb_ssh = SShSession(host, username, pwd)
+    henb_ssh.connect()
+    henb_ssh.run_command_shell('ipsec status')
+    # henb_ssh.run_command_shell('pwd', 'echo $SHELL')
+    # henb_ssh.download_file('/config/l3/femtoconfig.ini', r"E:/smallcell/versionFiles/femtoconfig.ini")
+    henb_ssh.close()

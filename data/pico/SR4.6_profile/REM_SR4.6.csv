@@ -1,0 +1,6 @@
+profile type,profile name,parameter name,parameter value
+REMProfile,REM_SR4.6,REM.LTE.ScanOnBoot,1
+REMProfile,REM_SR4.6,REM.LTE.ScanPeriodically,1
+REMProfile,REM_SR4.6,REM.LTE.PeriodicInterval,3600
+REMProfile,REM_SR4.6,REM.LTE.PeriodicTime,2019-01-01T00:00:00Z
+REMProfile,REM_SR4.6,REM.LTE.EUTRACarrierARFCNDLList,"39850,38950,39150,40350,40978"

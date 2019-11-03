@@ -1,0 +1,3 @@
+profile type,profile name,parameter name,parameter value
+SecurityManagementProfile,SecurityManagement_SR4.6,ENBFunction.SecurityManagement.AllowedCipheringAlgorithmList,0
+SecurityManagementProfile,SecurityManagement_SR4.6,ENBFunction.SecurityManagement.AllowedIntegrityProtectionAlgorithmList,1

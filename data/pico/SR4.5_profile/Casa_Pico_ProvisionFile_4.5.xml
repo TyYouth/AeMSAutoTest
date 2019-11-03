@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<NodeConfig> 
+  <Unique> 
+    <DeviceInfo>  
+      <CascadeId>Pico-eNB</CascadeId>  
+      <Site>7</Site>  
+      <RegionId>Sprint_Market</RegionId>  
+      <Hardware>1</Hardware>  
+      <SoftwareVersion>4.5.11</SoftwareVersion>    
+      <Description>Sprint_Pico_cell</Description> 
+    </DeviceInfo>  
+    <ENBFunction> 
+      <eNBId>5</eNBId> 
+	  <eNBName>pico-cell</eNBName>
+	  <EUtranCellTDD> 
+	  <cellLocalId>145</cellLocalId> 
+	  </EUtranCellTDD>
+    </ENBFunction> 
+	<ManagementServer>
+	<ConnectionRequestPassword>casa</ConnectionRequestPassword>
+	<ConnectionRequestUsername>casa</ConnectionRequestUsername>
+	</ManagementServer>
+	<EPC> 
+	<MMEFunction> 
+		<S1SigLinkServerList>172.0.11.41</S1SigLinkServerList>
+	</MMEFunction> 
+	</EPC> 
+  </Unique>  
+  <Profiles>  
+  	<EPCProfile>Anaheim_Burbank_Phoenix_MME_Pool_SR4.5</EPCProfile>   
+	<RadioProfile>Radio_B41_41176_SR4.5</RadioProfile>
+  	<MobilityProfile>Boston_Mobility_SR4.5</MobilityProfile>
+	<CSGProfile>CSG_SR4.5</CSGProfile>
+	<GPSProfile>GPS_SR4.5</GPSProfile>
+	<GTPProfile>GTP_SR4.5</GTPProfile>
+	<MobilityCDMA2000Profile>MobilityCDMA2000_SR4.5</MobilityCDMA2000Profile>
+	<SONProfile>Boston_SON_SR4.5</SONProfile>
+	<SecurityManagementProfile>SecurityManagement_SR4.5</SecurityManagementProfile>
+	<SCTPProfile>SCTP_SR4.5</SCTPProfile>
+	<REMProfile>REM_SR4.5</REMProfile>
+	<RadioAdvancedProfile>RadioAdvanced_SR4.5</RadioAdvancedProfile>
+	<QOSProfile>QoS_SR4.5</QOSProfile>
+	<NeighborListCDMA2000Profile>NeighbourListCDMA2000_SR4.5</NeighborListCDMA2000Profile>
+	<TR069Profile>TR069_SR4.5</TR069Profile>
+	<TimeSyncProfile>TimeSync_GNSS_SR4.5</TimeSyncProfile>
+	<PerfMgmtProfile>PerfMgmt_SR4.5</PerfMgmtProfile>
+	<NeighborListProfile>NeighbourList_SR4.5</NeighborListProfile>
+	<Self-HealingProfile>Self-HealingProfile_SR4.5</Self-HealingProfile>
+  </Profiles> 
+</NodeConfig>
+
+
+
+
+
+

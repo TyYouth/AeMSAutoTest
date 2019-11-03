@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cwmp="urn:dslforum-org:cwmp-1-1">
+  <soapenv:Header> 
+    <cwmp:ID soapenv:mustUnderstand="1">8</cwmp:ID> 
+  </soapenv:Header>  
+  <soapenv:Body> 
+    <cwmp:Inform> 
+      <DeviceId> 
+        <Manufacturer>Casa_Systems</Manufacturer>  
+        <OUI>001710</OUI>  
+        <ProductClass>LifeStyle_Femto</ProductClass>  
+        <SerialNumber>2019092311</SerialNumber> 
+      </DeviceId>  
+      <Event soapenc:arrayType="cwmp:EventStruct[01]"> 
+        <EventStruct> 
+          <EventCode>4 VALUE CHANGE</EventCode>  
+          <CommandKey/> 
+        </EventStruct> 
+      </Event>  
+      <MaxEnvelopes>1</MaxEnvelopes>  
+      <CurrentTime>2019-10-20T08:46:53Z</CurrentTime>  
+      <RetryCount>0</RetryCount>  
+      <ParameterList soapenc:arrayType="cwmp:ParameterValueStruct[3]">  
+        <ParameterValueStruct> 
+          <Name>Device.Services.FAPService.1.FAPControl.LTE.RFTxStatus</Name>  
+          <Value xsi:type="xsd:boolean">true</Value> 
+        </ParameterValueStruct>  
+        <ParameterValueStruct> 
+          <Name>Device.Services.FAPService.1.FAPControl.LTE.AdminState</Name>  
+          <Value xsi:type="xsd:boolean">true</Value> 
+        </ParameterValueStruct>  
+        <ParameterValueStruct> 
+          <Name>Device.Services.FAPService.1.FAPControl.LTE.OpState</Name>  
+          <Value xsi:type="xsd:boolean">true</Value> 
+        </ParameterValueStruct>  
+      </ParameterList> 
+    </cwmp:Inform> 
+  </soapenv:Body> 
+</soapenv:Envelope>

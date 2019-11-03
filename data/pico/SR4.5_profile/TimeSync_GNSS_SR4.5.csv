@@ -1,0 +1,7 @@
+profile type,profile name,parameter name,parameter value
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.LocalTimeZone,UTC
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.NTPServer1,cn.pool.ntp.org
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.NTPServer2,
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.NTPServer3,
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.NTPServer4,
+TimeSyncProfile,TimeSync_GNSS_SR4.5,TimeSync.Time.NTPServer5,

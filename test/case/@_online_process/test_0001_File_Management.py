@@ -6,7 +6,7 @@ from test.page.basepage import BasePage
 from test.page.SmallCellManagemetPage import FileManagementPage
 
 driver = AeMSCase().driver
-current_page = FileManagementPage(driver=driver)
+file_management_page = FileManagementPage(driver=driver)
 
 
 class TestFileManagement(AeMSCase, BasePage):
@@ -15,7 +15,12 @@ class TestFileManagement(AeMSCase, BasePage):
         AeMSCase.setUp(self)
         # if self._e_cancel_btn:
         #     self.click(self._e_cancel_btn)
-        self.open_tab(" Small Cell Management", "Users")
+        self.open_tab(" Small Cell Management", "File Management")
+        if not self._column_names:
+            self._column_names = self.get_column_names()
+
+    def test_0001_upload(self):
+        pass
 
     def tearDown(self):
         AeMSCase.tearDown(self)

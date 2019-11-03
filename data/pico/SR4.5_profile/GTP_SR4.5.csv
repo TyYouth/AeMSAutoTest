@@ -1,0 +1,3 @@
+profile type,profile name,parameter name,parameter value
+GTPProfile,GTP_SR4.5,Transport.GTP.MSSClampingEnabled,1
+GTPProfile,GTP_SR4.5,Transport.GTP.MSSClampingThreshold,1300

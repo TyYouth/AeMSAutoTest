@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="MeasDataCollection.xsl"?>
+<measCollecFile xmlns="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec">
+    <fileHeader fileFormatVersion="32.435 V12.0" vendorName="Casa Systems">
+        <fileSender elementType="NodeB"/>
+        <measCollec beginTime="2019-10-26T04:00:00+00:00"/>
+    </fileHeader>
+    <measData>
+        <managedElement localDn="LocalDn" swVersion="master"/>
+        <measInfo>
+            <job jobId="Integrity"/>
+            <granPeriod duration="PT3600S" endTime="2019-10-26T05:00:00+00:00"/>
+            <repPeriod duration="PT3600S"/>
+            <measTypes>S1.IncSctpPkt S1.IncSctpOct S1.IncSctpPktDropped S1.OutSctpPkt S1.OutSctpOct S1.OutSctpPktDropped S1.IncPsPkt S1.IncPsOct S1.OutPsPkt S1.OutPsOct CARR.WBCQIDist.Bin0 CARR.WBCQIDist.Bin1 CARR.WBCQIDist.Bin2 CARR.WBCQIDist.Bin3 CARR.WBCQIDist.Bin4 CARR.WBCQIDist.Bin5 CARR.WBCQIDist.Bin6 CARR.WBCQIDist.Bin7 CARR.WBCQIDist.Bin8 CARR.WBCQIDist.Bin9 CARR.WBCQIDist.Bin10 CARR.WBCQIDist.Bin11 CARR.WBCQIDist.Bin12 CARR.WBCQIDist.Bin13 CARR.WBCQIDist.Bin14 CARR.WBCQIDist.Bin15 CARR.WBCQIDist.Sum CARR.WBCQIAvg CARR.RIDist.RI1 CARR.RIDist.RI2 DRB.MacPduBitrateDl.QCI0 DRB.MacPduBitrateDl.QCI1 DRB.MacPduBitrateDl.QCI2 DRB.MacPduBitrateDl.QCI3 DRB.MacPduBitrateDl.QCI4 DRB.MacPduBitrateDl.QCI5 DRB.MacPduBitrateDl.QCI6 DRB.MacPduBitrateDl.QCI7 DRB.MacPduBitrateDl.QCI8 DRB.MacPduBitrateDl.QCI9 DRB.MacPduBitrateDl.Sum DRB.MacPduBitrateUl.QCI0 DRB.MacPduBitrateUl.QCI1 DRB.MacPduBitrateUl.QCI2 DRB.MacPduBitrateUl.QCI3 DRB.MacPduBitrateUl.QCI4 DRB.MacPduBitrateUl.QCI5 DRB.MacPduBitrateUl.QCI6 DRB.MacPduBitrateUl.QCI7 DRB.MacPduBitrateUl.QCI8 DRB.MacPduBitrateUl.QCI9 DRB.MacPduBitrateUl.Sum DRB.PdcpSduAirLossRateDl.QCI0 DRB.PdcpSduAirLossRateDl.QCI1 DRB.PdcpSduAirLossRateDl.QCI2 DRB.PdcpSduAirLossRateDl.QCI3 DRB.PdcpSduAirLossRateDl.QCI4 DRB.PdcpSduAirLossRateDl.QCI5 DRB.PdcpSduAirLossRateDl.QCI6 DRB.PdcpSduAirLossRateDl.QCI7 DRB.PdcpSduAirLossRateDl.QCI8 DRB.PdcpSduAirLossRateDl.QCI9 DRB.PdcpSduAirLossRateDl.Sum DRB.PdcpSduDropRateDl.QCI0 DRB.PdcpSduDropRateDl.QCI1 DRB.PdcpSduDropRateDl.QCI2 DRB.PdcpSduDropRateDl.QCI3 DRB.PdcpSduDropRateDl.QCI4 DRB.PdcpSduDropRateDl.QCI5 DRB.PdcpSduDropRateDl.QCI6 DRB.PdcpSduDropRateDl.QCI7 DRB.PdcpSduDropRateDl.QCI8 DRB.PdcpSduDropRateDl.QCI9 DRB.PdcpSduDropRateDl.Sum DRB.PdcpSduBitrateDl.QCI0 DRB.PdcpSduBitrateDl.QCI1 DRB.PdcpSduBitrateDl.QCI2 DRB.PdcpSduBitrateDl.QCI3 DRB.PdcpSduBitrateDl.QCI4 DRB.PdcpSduBitrateDl.QCI5 DRB.PdcpSduBitrateDl.QCI6 DRB.PdcpSduBitrateDl.QCI7 DRB.PdcpSduBitrateDl.QCI8 DRB.PdcpSduBitrateDl.QCI9 DRB.PdcpSduBitrateDl.Sum DRB.PdcpSduBitrateUl.QCI0 DRB.PdcpSduBitrateUl.QCI1 DRB.PdcpSduBitrateUl.QCI2 DRB.PdcpSduBitrateUl.QCI3 DRB.PdcpSduBitrateUl.QCI4 DRB.PdcpSduBitrateUl.QCI5 DRB.PdcpSduBitrateUl.QCI6 DRB.PdcpSduBitrateUl.QCI7 DRB.PdcpSduBitrateUl.QCI8 DRB.PdcpSduBitrateUl.QCI9 DRB.PdcpSduBitrateUl.Sum DRB.PdcpSduBitrateDlMax DRB.PdcpSduBitrateUlMax DRB.PdcpSduDroppedPackets.QCI0 DRB.PdcpSduDroppedPackets.QCI1 DRB.PdcpSduDroppedPackets.QCI2 DRB.PdcpSduDroppedPackets.QCI3 DRB.PdcpSduDroppedPackets.QCI4 DRB.PdcpSduDroppedPackets.QCI5 DRB.PdcpSduDroppedPackets.QCI6 DRB.PdcpSduDroppedPackets.QCI7 DRB.PdcpSduDroppedPackets.QCI8 DRB.PdcpSduDroppedPackets.QCI9 DRB.PdcpSduDroppedPackets.Sum DRB.RlcPduBitrateDl.QCI0 DRB.RlcPduBitrateDl.QCI1 DRB.RlcPduBitrateDl.QCI2 DRB.RlcPduBitrateDl.QCI3 DRB.RlcPduBitrateDl.QCI4 DRB.RlcPduBitrateDl.QCI5 DRB.RlcPduBitrateDl.QCI6 DRB.RlcPduBitrateDl.QCI7 DRB.RlcPduBitrateDl.QCI8 DRB.RlcPduBitrateDl.QCI9 DRB.RlcPduBitrateDl.Sum DRB.RlcPduBitrateUl.QCI0 DRB.RlcPduBitrateUl.QCI1 DRB.RlcPduBitrateUl.QCI2 DRB.RlcPduBitrateUl.QCI3 DRB.RlcPduBitrateUl.QCI4 DRB.RlcPduBitrateUl.QCI5 DRB.RlcPduBitrateUl.QCI6 DRB.RlcPduBitrateUl.QCI7 DRB.RlcPduBitrateUl.QCI8 DRB.RlcPduBitrateUl.QCI9 DRB.RlcPduBitrateUl.Sum</measTypes>
+            <measValue measObjLdn="">
+                <measResults>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</measResults>
+            </measValue>
+        </measInfo>
+    </measData>
+    <fileFooter>
+        <measCollec endTime="2019-10-26T05:00:00+00:00"/>
+    </fileFooter>
+</measCollecFile>

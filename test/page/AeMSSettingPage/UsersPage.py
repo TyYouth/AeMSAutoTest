@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 
 
 class UsersPage(BasePage):
+
     def __init__(self, driver):
         super(UsersPage, self).__init__(driver)
         self.default_pwd = "casa1234"

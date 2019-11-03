@@ -1,0 +1,19 @@
+profile type,profile name,parameter name,parameter value
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.HBInterval,30
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.MaxInitRetransmits,8
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.MaxPathRetransmits,5
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.RTOMax,6000
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.ConnectionReconnectionTries,60
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.ConnectionTimeToWait,10
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.InitMaxInitTimeo,3
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.InitMaxInstreams,2
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.InitNumOstreams,2
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SppFlags,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpAdaptationLayerEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpPartialDeliveryEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpShutdownEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpPeerErrorEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpSendFailureEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpAddressEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpAssociationEventEnable,1
+SCTPProfile,SCTP_SR4.5,Transport.SCTP.SctpDataIoEventEnable,1

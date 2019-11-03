@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="MeasDataCollection.xsl"?>
+<measCollecFile xmlns="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.3gpp.org/ftp/specs/archive/32_series/32.435#measCollec">
+    <fileHeader fileFormatVersion="32.435 V12.0" vendorName="Casa Systems">
+        <fileSender elementType="NodeB"/>
+        <measCollec beginTime="2019-10-26T04:00:00+00:00"/>
+    </fileHeader>
+    <measData>
+        <managedElement localDn="LocalDn" swVersion="master"/>
+        <measInfo>
+            <job jobId="SystemUtilization"/>
+            <granPeriod duration="PT3600S" endTime="2019-10-26T05:00:00+00:00"/>
+            <repPeriod duration="PT3600S"/>
+            <measTypes>RRU.MimoUsageDl.SINGLE_AP0 RRU.MimoUsageDl.TX_DIVERSITY RRU.MimoUsageDl.OLSM RRU.MimoUsageDl.CLSM DRB.UEActiveDlMax.QCI0 DRB.UEActiveDlMax.QCI1 DRB.UEActiveDlMax.QCI2 DRB.UEActiveDlMax.QCI3 DRB.UEActiveDlMax.QCI4 DRB.UEActiveDlMax.QCI5 DRB.UEActiveDlMax.QCI6 DRB.UEActiveDlMax.QCI7 DRB.UEActiveDlMax.QCI8 DRB.UEActiveDlMax.QCI9 DRB.UEActiveDl.QCI0 DRB.UEActiveDl.QCI1 DRB.UEActiveDl.QCI2 DRB.UEActiveDl.QCI3 DRB.UEActiveDl.QCI4 DRB.UEActiveDl.QCI5 DRB.UEActiveDl.QCI6 DRB.UEActiveDl.QCI7 DRB.UEActiveDl.QCI8 DRB.UEActiveDl.QCI9 DRB.UEActiveUlMax.QCI0 DRB.UEActiveUlMax.QCI1 DRB.UEActiveUlMax.QCI2 DRB.UEActiveUlMax.QCI3 DRB.UEActiveUlMax.QCI4 DRB.UEActiveUlMax.QCI5 DRB.UEActiveUlMax.QCI6 DRB.UEActiveUlMax.QCI7 DRB.UEActiveUlMax.QCI8 DRB.UEActiveUlMax.QCI9 DRB.UEActiveUl.QCI0 DRB.UEActiveUl.QCI1 DRB.UEActiveUl.QCI2 DRB.UEActiveUl.QCI3 DRB.UEActiveUl.QCI4 DRB.UEActiveUl.QCI5 DRB.UEActiveUl.QCI6 DRB.UEActiveUl.QCI7 DRB.UEActiveUl.QCI8 DRB.UEActiveUl.QCI9 RRU.PrbUl.QCI0 RRU.PrbUl.QCI1 RRU.PrbUl.QCI2 RRU.PrbUl.QCI3 RRU.PrbUl.QCI4 RRU.PrbUl.QCI5 RRU.PrbUl.QCI6 RRU.PrbUl.QCI7 RRU.PrbUl.QCI8 RRU.PrbUl.QCI9 RRU.PrbUl.SUM RRU.PrbDl.QCI0 RRU.PrbDl.QCI1 RRU.PrbDl.QCI2 RRU.PrbDl.QCI3 RRU.PrbDl.QCI4 RRU.PrbDl.QCI5 RRU.PrbDl.QCI6 RRU.PrbDl.QCI7 RRU.PrbDl.QCI8 RRU.PrbDl.QCI9 RRU.PrbDl.SUM RRU.PrbTotDl RRU.PrbTotUl TTI.UsageDl TTI.UsageUl EQPT.MeanProcessorUsage.Avg EQPT.PeakProcessorUsage.Avg EQPT.PeakProcessorUsage.3 EQPT.MeanProcessorUsage.3 EQPT.PeakProcessorUsage.2 EQPT.MeanProcessorUsage.2 EQPT.PeakProcessorUsage.1 EQPT.MeanProcessorUsage.1 EQPT.PeakProcessorUsage.0 EQPT.MeanProcessorUsage.0</measTypes>
+            <measValue measObjLdn="">
+                <measResults>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 15 11 2 9 2 10 2 45 4</measResults>
+            </measValue>
+        </measInfo>
+    </measData>
+    <fileFooter>
+        <measCollec endTime="2019-10-26T05:00:00+00:00"/>
+    </fileFooter>
+</measCollecFile>

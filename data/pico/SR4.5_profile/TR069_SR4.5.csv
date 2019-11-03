@@ -1,0 +1,8 @@
+profile type,profile name,parameter name,parameter value
+TR069Profile,TR069_SR4.5,ManagementServer.ConnectionRequestPassword,casa
+TR069Profile,TR069_SR4.5,ManagementServer.ConnectionRequestUsername,casa
+TR069Profile,TR069_SR4.5,ManagementServer.ParameterKey,set_casa
+TR069Profile,TR069_SR4.5,ManagementServer.PeriodicInformEnable,1
+TR069Profile,TR069_SR4.5,ManagementServer.PeriodicInformInterval,900
+TR069Profile,TR069_SR4.5,ManagementServer.PeriodicInformTime,2019-01-01T00:00:00Z
+TR069Profile,TR069_SR4.5,ManagementServer.MaxRetryForConnectingAcs,3
