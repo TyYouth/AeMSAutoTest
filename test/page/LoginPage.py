@@ -18,7 +18,7 @@ class LoginPage(BasePage):
     def login_aems(self, login_method='Local Database'):
         self.send_keys(self.e_username, 'admin')
         self.send_keys(self.e_pwd, "casa")
-        current_method = self.get_text(self.e_repository).text
+        current_method = self.get_text(self.e_repository)
         logger.debug("current login method is {}".format(current_method))
         self.select_by_text(self.e_repository, login_method)
         self.button(self.val_login_btn)

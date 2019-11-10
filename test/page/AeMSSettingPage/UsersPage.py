@@ -22,7 +22,7 @@ class UsersPage(BasePage):
 
         # element of user page
         # self.e_permission_select = (By.XPATH, "//select[@ng-model='selectedGroups']")
-        self.e_username = (By.NAME, 'user_name')
+        self.e_username = (By.NAME, 'username')
         self.e_given_name = (By.NAME, 'truename')
         self.e_account_expiration = (By.NAME, 'userValidity')
         self.e_pwd_expiration = (By.NAME, 'passwordValidity')

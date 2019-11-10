@@ -9,6 +9,8 @@ class Logger(object):
         self.logger = logging.getLogger(logger_name)
         logging.root.setLevel(logging.NOTSET)
         c = Config().get('log')
+        if not os.path.exists(LOG_PATH):
+            os.makedirs(LOG_PATH)
         if c:
             self.log_file_name = c.get('file_name') if c.get('file_name') else 'test.log'
             self.backup_count = c.get('backup_count') if c.get('backup_count') else 7

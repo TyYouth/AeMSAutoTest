@@ -12,7 +12,6 @@ config_page = BasePage(driver=driver)
 
 
 class TestModels(AeMSCase, BasePage):
-    version = Config().get("AeMS").get("version")
     v_add_btn = "add()"
     v_model_name_input_text = "modelName"
     v_vendor_input_text = "manu"

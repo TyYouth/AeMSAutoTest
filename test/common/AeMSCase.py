@@ -4,7 +4,7 @@ import unittest
 from time import sleep
 
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException,ElementNotVisibleException
 
 from utils.log import logger
 from utils.config import Config
@@ -15,11 +15,14 @@ class AeMSCase(unittest.TestCase):
     set_up = LoginPage()
     set_up.driver_init()
     driver = set_up.get_driver()
+    column_names = None
 
     @classmethod
     def setUpClass(cls):
         logger.info("start to execute case of " + cls.__module__)
         aems_config = Config().get('AeMS')
+        cls.version = aems_config.get('version')
+        cls.version_upload_file = None
         northbound_ip_address = aems_config.get('northbound_ip_address')
         url = 'https://{0}/hems-web-ui/signin'.format(northbound_ip_address)
         cls.driver.get(url)
@@ -43,10 +46,10 @@ class AeMSCase(unittest.TestCase):
         # 注意！ first_tab_name复制前端的字符串（因为可能前端开发为了排版使用空格）
         first_tab_class_name = self.driver.find_element_by_xpath(
             "//a[text()='%s']/parent::li" % first_tab).get_attribute("class")
-        if first_tab_class_name == "sub-menu toggled":  # 判断标签是否已经展开
-            pass
-        if first_tab_class_name == "sub-menu":
+        if first_tab_class_name == "sub-menu":  # 判断标签是否已经展开
             self.driver.find_element_by_xpath("//a[text()='%s']" % first_tab).click()
+        if first_tab_class_name == "sub-menu toggled":
+            pass
 
         if second_tab:
             second_tab_class_name = self.driver.find_element_by_xpath(
@@ -54,10 +57,13 @@ class AeMSCase(unittest.TestCase):
             if second_tab_class_name:
                 if second_tab_class_name == "sub-menu toggled":
                     pass
-                if second_tab_class_name == "sub-menu":
-                    self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
+                # if second_tab_class_name == "sub-menu":
+                #     self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
             else:
-                self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
+                try:
+                    self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
+                except ElementNotVisibleException:
+                    self.driver.find_element_by_xpath("//a[text()='%s' and @ng-show='true']" % second_tab).click()
 
         if third_tab:
             third_tab_class_name = self.driver.find_element_by_xpath(
@@ -65,10 +71,11 @@ class AeMSCase(unittest.TestCase):
             if third_tab_class_name:
                 if third_tab_class_name == "sub-menu toggled":
                     pass
-                if third_tab_class_name == "sub-menu":
-                    self.driver.find_element_by_xpath("//a[text()='%s']" % third_tab).click()
             else:
-                self.driver.find_element_by_xpath("//a[text()='%s']" % third_tab).click()
+                try:
+                    self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
+                except ElementNotVisibleException:
+                    self.driver.find_element_by_xpath("//a[text()='%s' and @ng-show='true']" % second_tab).click()
         sleep(0.5)
 
     # 获取列名

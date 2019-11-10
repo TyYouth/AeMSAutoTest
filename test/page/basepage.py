@@ -26,7 +26,6 @@ class BasePage(Browser):
         # 遍历对象属性(和方法函数)
         # Traverse object properties (and method functions)
         self._dict = object.__getattribute__(self, '__dict__')
-
         # general element in all page, start with _e_
         self._e_logout_btn = (By.XPATH, "//li[@ng-click='signOut()']")
         self._e_ok_btn = (By.XPATH, "//button[@ng-click='ok()']")
@@ -105,8 +104,8 @@ class BasePage(Browser):
         else:
             return button_element
 
-    def is_button_enable(self, web_ele, button_name):
-        is_disabled = self.get_attr(web_ele, button_name, "disabled")
+    def is_button_enable(self, web_ele):
+        is_disabled = self.get_attr(web_ele, "disabled")
         # the value return by get_attr is true or false
         if is_disabled == 'true':
             logger.error("This OK button can NOT be clicked")
@@ -117,7 +116,7 @@ class BasePage(Browser):
             return True
 
     def is_ok_btn_enable(self):
-        self.is_button_enable(self._e_ok_btn, "ok button")
+        self.is_button_enable(self._e_ok_btn)
 
     def ok_btn(self):
         if self.is_ok_btn_enable():
@@ -150,17 +149,17 @@ class BasePage(Browser):
         self.click(self._e_logout_btn)
         self.ok_btn()
 
-    def act_input_text_prompt(self, input_text_ele, input_value, button_name, show_value=None, expected_msg=None,
+    def act_input_text_prompt(self, input_text_ele, input_value, show_value=None, expected_msg=None,
                               is_false=True):
         self.send_keys(input_text_ele, input_value)
         result = False
         if is_false:
             prompt_msg = self.prompt_msg(show_value=show_value)
-            if expected_msg == prompt_msg and (self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False),
-                                                                     button_name) is False):
+            if expected_msg == prompt_msg and (self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False)
+                                                                     ) is False):
                 result = True
         elif not (is_false and show_value and expected_msg):
-            if self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False), button_name) is True:
+            if self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False)) is True:
                 result = True
         return result
 

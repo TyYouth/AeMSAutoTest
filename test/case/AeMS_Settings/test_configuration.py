@@ -28,22 +28,19 @@ class TestConfigs(AeMSCase, BasePage):
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value=0,
                                                    show_value=logout_time_show_value,
-                                                   expected_msg="Value should be integer and between 15-60.",
-                                                   button_name="save button")
+                                                   expected_msg="Value should be integer and between 15-60.",)
         self.assertTrue(result)
 
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value=66,
                                                    show_value=logout_time_show_value,
-                                                   expected_msg="Value should be integer and between 15-60.",
-                                                   button_name="save button")
+                                                   expected_msg="Value should be integer and between 15-60.",)
         self.assertTrue(result)
 
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value="2@Admin",
                                                    show_value=logout_time_show_value,
-                                                   expected_msg="Value should be integer and between 15-60.",
-                                                   button_name="save button")
+                                                   expected_msg="Value should be integer and between 15-60.",)
         self.assertTrue(result)
 
         # config_page.send_keys(config_page.e_logout_time_input_text, 60)
@@ -53,17 +50,17 @@ class TestConfigs(AeMSCase, BasePage):
 
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value=60,
-                                                   button_name="save button", is_false=False)
+                                                   is_false=False)
         self.assertTrue(result)
 
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value=15,
-                                                   button_name="save button", is_false=False)
+                                                   is_false=False)
         self.assertTrue(result)
 
         result = config_page.act_input_text_prompt(input_text_ele=config_page.e_logout_time_input_text,
                                                    input_value=45,
-                                                   button_name="save button", is_false=False)
+                                                   is_false=False)
         self.assertTrue(result)
 
     def test_01_switch_log_setting(self):

@@ -106,7 +106,7 @@ class HeNB(SShSession):
 
 
 henb = HeNB()
-henb.run_cmd('echo $PATH')
+# henb.run_cmd('echo $PATH')
 henb.reboot()
 henb.close()
 # henb.get_parameter_by_oam("SIB1.SIB1.TAC")

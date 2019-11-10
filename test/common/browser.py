@@ -23,11 +23,13 @@ class UnSupportBrowserTypeError(Exception):
 class Browser(object):
     def __init__(self, browser_type='chrome'):
         super(Browser, self).__init__()
+        self.driver = None
         self._type = browser_type
         if self._type in TYPES:
             self.browser = TYPES[self._type]
         else:
             raise UnSupportBrowserTypeError("UnSupport browser type, support %s only" % ''.join(TYPES.keys()))
+        self.accept_next_alert = None
 
     def driver_init(self, maximize_windows=True, implicitly_wait=5):
         logger.info('driver init start, opened browser')
@@ -236,9 +238,9 @@ class Browser(object):
         web_element.submit()
 
     @staticmethod
-    def get_attr(web_element, target_ele_name, attr_name):
+    def get_attr(web_element, attr_name):
         attr_value = web_element.get_attribute(attr_name)
-        logger.debug("the attribute {} of {} is {}".format(attr_name, target_ele_name, attr_value))
+        logger.debug("the attribute {} is {}".format(attr_name, attr_value))
         return attr_value
 
     def upload_file(self, web_element, path):

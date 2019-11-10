@@ -1,6 +1,6 @@
 AeMS:
-  # version branch support: pico, femto, verizon
-  version: pico
+  # version branch support: pico_upload, femto, verizon
+  version: pico_upload
   northbound_ip_address: 172.0.16.99
   southbound_ip_address: 172.0.17.99
   mgmt_ip_address:
@@ -12,11 +12,11 @@ AeMS:
   backend_pwd: casa
 
 HeNB:
-  host: 172.0.13.100
+  host: 172.0.13.185
   port: 22
   # default pwd Ca$a@pex!234
   user_name: root
-  password: casa
+  password: Ca$a@pex!234
   oam_file: /usr/sbin/oam
   TR069_file: /config/tr069/tr069_agent.ini
 

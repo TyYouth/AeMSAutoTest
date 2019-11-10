@@ -10,15 +10,12 @@ driver = AeMSCase().driver
 users_page = UsersPage(driver=driver)
 
 
-class TestUsers(AeMSCase, BasePage):
-
-    # def __init__(self):
-    #     UsersPage.__init__(self, driver=driver)
+class TestUsers(AeMSCase, UsersPage):
 
     def setUp(self):
         AeMSCase.setUp(self)
-        # if self._e_cancel_btn:
-        #     self.click(self._e_cancel_btn)
+        if users_page._e_cancel_btn:
+            self.click(users_page._e_cancel_btn)
         self.open_tab("AeMS Settings", "Users")
 
     def test_00_user_tip(self):
@@ -36,8 +33,6 @@ class TestUsers(AeMSCase, BasePage):
         prompt_msg = self.prompt_msg(show_value="setForm.user_name.$dirty && setForm.user_name.$invalid")
         self.assertEqual('required letters number or "_"(3 to 16 characters)', prompt_msg)
         sleep(0.25)
-
-        users_page.cancel_btn()
 
     def test_01_pwd_tip(self):
         """Test the tip of password"""
@@ -60,7 +55,6 @@ class TestUsers(AeMSCase, BasePage):
         prompt_msg = self.prompt_msg(
             show_value="modal.user.password && !isNoPassVaild && setForm.confirmpassword.$invalid")
         self.assertEqual('Passwords do not match', prompt_msg)
-        users_page.cancel_btn()
 
     def test_02_phone_tip(self):
         users_page.action_fill_user_info(user_name='phoneTest')
@@ -87,8 +81,6 @@ class TestUsers(AeMSCase, BasePage):
         sleep(0.25)
         prompt_msg = self.prompt_msg("isSame1")
         self.assertEqual('Phone2 should not be the same as Phone1', prompt_msg)
-
-        users_page.cancel_btn()
 
     def tearDown(self):
         AeMSCase.tearDown(self)

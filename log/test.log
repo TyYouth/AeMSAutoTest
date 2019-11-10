@@ -1,0 +1,251 @@
+2019-11-10 10:50:14,105- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:50:17,153- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:50:17,207- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:51:32,227- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:51:35,183- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:51:35,240- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:53:19,696- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:53:22,931- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 10:53:22,980- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:37:16,675- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:37:22,041- open_tab- ERROR - Message: element not interactable
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\common\AeMSCase.py", line 61, in open_tab
+    self.driver.find_element_by_xpath("//a[text()='%s']" % second_tab).click()
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webelement.py", line 628, in _execute
+    return self._parent.execute(command, params)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementNotVisibleException: Message: element not interactable
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+
+2019-11-10 11:37:22,543- __getattribute__- ERROR - 'TestFileManagement' object has no attribute 'column_names'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 54, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute 'column_names'
+2019-11-10 11:43:33,727- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:43:39,961- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:46:02,849- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:46:08,798- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:48:36,671- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:48:42,708- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:51:28,599- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:51:55,579- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:56:32,167- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 11:56:38,371- __getattribute__- ERROR - 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestFileManagement' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:10:48,493- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:10:48,494- __getattribute__- ERROR - 'TestUsers' object has no attribute '_dict'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '_dict'
+2019-11-10 13:10:48,496- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:10:48,496- __getattribute__- ERROR - 'TestUsers' object has no attribute '_dict'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '_dict'
+2019-11-10 13:10:48,497- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:10:48,497- __getattribute__- ERROR - 'TestUsers' object has no attribute '_dict'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '_dict'
+2019-11-10 13:11:25,644- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:11:31,025- find_element- ERROR - can NOT find element by xpath with //button[@ng-click='cancel()']
+2019-11-10 13:11:31,025- find_element- ERROR - no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\common\browser.py", line 50, in find_element
+    return self.driver.find_element(*loc)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+
+2019-11-10 13:11:34,073- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:11:34,469- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:11:39,503- find_element- ERROR - can NOT find element by xpath with //button[@ng-click='cancel()']
+2019-11-10 13:11:39,503- find_element- ERROR - no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\common\browser.py", line 50, in find_element
+    return self.driver.find_element(*loc)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+
+2019-11-10 13:12:20,085- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:12:25,235- find_element- ERROR - can NOT find element by xpath with //button[@ng-click='cancel()']
+2019-11-10 13:12:25,235- find_element- ERROR - no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\common\browser.py", line 50, in find_element
+    return self.driver.find_element(*loc)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+
+2019-11-10 13:12:28,180- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:12:28,577- __getattribute__- ERROR - 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\page\basepage.py", line 53, in __getattribute__
+    return object.__getattribute__(self, attr)
+AttributeError: 'TestUsers' object has no attribute '__unittest_expecting_failure__'
+2019-11-10 13:12:33,602- find_element- ERROR - can NOT find element by xpath with //button[@ng-click='cancel()']
+2019-11-10 13:12:33,602- find_element- ERROR - no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+Traceback (most recent call last):
+  File "F:\pycharm\AeMSAutoTest\test\common\browser.py", line 50, in find_element
+    return self.driver.find_element(*loc)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 966, in find_element
+    'value': value})['value']
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 320, in execute
+    self.error_handler.check_response(response)
+  File "F:\python\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//button[@ng-click='cancel()']"}
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38),platform=Windows NT 10.0.17763 x86_64)
+

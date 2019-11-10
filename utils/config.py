@@ -11,14 +11,15 @@ CASE_PATH = os.path.join(BASE_PATH, 'test', 'case')
 LOG_PATH = os.path.join(BASE_PATH, 'log')
 REPORT_PATH = os.path.join(BASE_PATH, 'report')
 REPORT_FILE = os.path.join(REPORT_PATH, 'report.html')
+DATA_FILE = os.path.join(BASE_PATH, 'data')
 
 
 class YamlReader(object):
-    def __init__(self, yamlfile):
+    def __init__(self, yaml_file):
         try:
             # check whether yml file is exists or not
-            if os.path.exists(yamlfile):
-                self.yamlfile = yamlfile
+            if os.path.exists(yaml_file):
+                self.yaml_file = yaml_file
         except FileNotFoundError:
             print('File was not found')
         self._data = None
@@ -27,7 +28,7 @@ class YamlReader(object):
     def data(self):
         # if opening yml first time, load it as a list type variable
         if not self._data:
-            with open(self.yamlfile, 'rb') as file:
+            with open(self.yaml_file, 'rb') as file:
                 self._data = list(yaml.safe_load_all(file))
         return self._data
 
@@ -64,8 +65,8 @@ class JsonReader(object):
 
 
 class JsonConfig(object):
-    def __init__(self, jsonconfig=HENB_CONFIG_PATH):
-        self.config = JsonReader(jsonconfig).data
+    def __init__(self, jsonc_onfig=HENB_CONFIG_PATH):
+        self.config = JsonReader(jsonc_onfig).data
 
     def get(self, date_name):
         try:
