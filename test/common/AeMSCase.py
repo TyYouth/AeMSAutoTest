@@ -4,7 +4,7 @@ import unittest
 from time import sleep
 
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException,ElementNotVisibleException
+from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException
 
 from utils.log import logger
 from utils.config import Config
@@ -22,7 +22,6 @@ class AeMSCase(unittest.TestCase):
         logger.info("start to execute case of " + cls.__module__)
         aems_config = Config().get('AeMS')
         cls.version = aems_config.get('version')
-        cls.version_upload_file = None
         northbound_ip_address = aems_config.get('northbound_ip_address')
         url = 'https://{0}/hems-web-ui/signin'.format(northbound_ip_address)
         cls.driver.get(url)
@@ -130,3 +129,20 @@ class AeMSCase(unittest.TestCase):
         self.is_text_unique(label_name, unique_text)
         row_texts = self.get_row_by_text(label_name, unique_text)
         return row_texts[index]
+
+    # 处理div对话框
+    def get_alert_text_and_dismiss(self):
+        alert = None
+        try:
+            sleep(1)
+            alert = self.driver.find_element_by_xpath("//div[@class='sweet-alert showSweetAlert visible']")
+        except NoSuchElementException:
+            logger.warning("There is no alert displayed")
+        finally:
+            if alert:
+                text = alert.find_element_by_xpath("//p[@class='lead text-muted']").text
+                logger.warning("The alert is shown, and its text is: " + text)
+                self.driver.find_element_by_xpath('//button[text()="OK"]').click()
+                return text
+            else:
+                return None

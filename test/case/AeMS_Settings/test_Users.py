@@ -3,7 +3,6 @@
 
 from time import sleep
 from test.common.AeMSCase import AeMSCase
-from test.page.basepage import BasePage
 from test.page.AeMSSettingPage.UsersPage import UsersPage
 
 driver = AeMSCase().driver

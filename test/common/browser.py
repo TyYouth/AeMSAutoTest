@@ -127,7 +127,6 @@ class Browser(object):
     def find_xpath_by_text(self, label_name, text_val):
         try:
             web_ele = self.driver.find_element_by_xpath("//{}[text()='{}']".format(label_name, text_val))
-            logger.debug("the web element of '//{}[text()='{}']' is {}: ".format(label_name, text_val, web_ele))
             return web_ele
         except NoSuchElementException as e:
             logger.error("can NOT find element by such a xpath")
@@ -165,14 +164,16 @@ class Browser(object):
 
     def close_alert_and_get_its_text(self):
         try:
-            # time.sleep(0.5)
-            alert = self.driver.switch_to.alert()
+            time.sleep(0.5)
+            alert = self.driver.switch_to.alert
             alert_text = alert.text
             if self.accept_next_alert:
                 alert.accept()
             else:
                 alert.dismiss()
-            return alert_text
+            logger.warning("There is a alert prompt")
+            logger.warning('The text of alert is:{}'.format(alert_text))
+            # return alert_text
         finally:
             self.accept_next_alert = True
 

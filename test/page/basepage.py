@@ -41,18 +41,18 @@ class BasePage(Browser):
         """
         # filtering out the attribute which is start with _e_ or _e
         # the _e_ is the generic element of all page
-        try:
-            if attr.startswith('_e_') or attr.startswith('e_'):
-                value = self._dict[attr]
-                if isinstance(value, tuple) and len(value) == 2 and value[0] in self.by_method:
-                    _web_element = self.find_element(*value)
-                    return _web_element
-                else:
-                    raise IncorrectPathWebElement('{} is incorrect web element'.format(str(value)))
+        # try:
+        if attr.startswith('_e_') or attr.startswith('e_'):
+            value = self._dict[attr]
+            if isinstance(value, tuple) and len(value) == 2 and value[0] in self.by_method:
+                _web_element = self.find_element(*value)
+                return _web_element
             else:
-                return object.__getattribute__(self, attr)
-        except AttributeError as e:
-            logger.exception(e)
+                raise IncorrectPathWebElement('{} is incorrect web element'.format(str(value)))
+        else:
+            return object.__getattribute__(self, attr)
+        # except AttributeError as e:
+        #     logger.exception(e)
 
     @staticmethod
     def expected_time(days_delta=0, min_delta=0):
@@ -116,13 +116,12 @@ class BasePage(Browser):
             return True
 
     def is_ok_btn_enable(self):
-        self.is_button_enable(self._e_ok_btn)
+        return self.is_button_enable(self._e_ok_btn)
 
     def ok_btn(self):
         if self.is_ok_btn_enable():
             self.click(self._e_ok_btn)
             logger.debug("click the ok button")
-            time.sleep(0.25)
         else:
             logger.debug("the ok button is not clickable")
 
@@ -168,6 +167,9 @@ class BasePage(Browser):
         self.upload_file(self._e_file_select_input, file_path)
         try:
             # it is a ok button in fact
+            logger.debug("To upload file: " + file_path)
             self.ok_btn()
         except:
             self.find_xpath_by_text('button', 'Upload')
+        finally:
+            time.sleep(0.5)
