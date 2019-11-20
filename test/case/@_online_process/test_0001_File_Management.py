@@ -20,7 +20,7 @@ class TestFileManagement(AeMSCase, FileManagementPage):
 
     def test_0001_upload(self):
         files = self.get_upload_files(self.version)
-        # to upload all profile which is format is .csv
+        # to upload all profile which format is .csv (end with csv)
         for file in files:
             if file.endswith(".csv"):
                 file_management_page.act_upload_file(file)

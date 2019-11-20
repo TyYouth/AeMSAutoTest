@@ -11,7 +11,8 @@ CASE_PATH = os.path.join(BASE_PATH, 'test', 'case')
 LOG_PATH = os.path.join(BASE_PATH, 'log')
 REPORT_PATH = os.path.join(BASE_PATH, 'report')
 REPORT_FILE = os.path.join(REPORT_PATH, 'report.html')
-DATA_FILE = os.path.join(BASE_PATH, 'data')
+DATA_PATH = os.path.join(BASE_PATH, 'data')
+COMMON_FILE = os.path.join(DATA_PATH, 'common')
 
 
 class YamlReader(object):

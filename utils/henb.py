@@ -1,9 +1,18 @@
 #!/usr/bin/env python
 # coding=utf-8
-
+import os
+from collections import defaultdict
 from utils.log import logger
 from utils.ssh import SShSession
 from utils.config import Config
+from utils.config import COMMON_FILE
+from utils.CSV_handler import CsvReader
+alarm_file = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
+value_change = os.path.join(COMMON_FILE, 'common', 'TR069Packet', '4_value_change.xml')
+
+
+class NoSuchDeviceAlarm(Exception):
+    logger.exception("No such a Device Alarm")
 
 
 class HeNB(SShSession):
@@ -19,7 +28,7 @@ class HeNB(SShSession):
                 'oam_file') else '/usr/sbin/oam'
             self.tr069_file = self.config.get('TR069_file') if self.config.get(
                 'TR069_file') else '/config/tr069/tr069_agent.ini'
-        self.connect()
+        # self.connect()
         self.device_info = {}
 
     def get_parameter_by_oam(self, param_name):
@@ -103,12 +112,27 @@ class HeNB(SShSession):
     def reboot(self):
         self.run_command_shell('reboot')
 
+    @classmethod
+    def parse_alarm_definition(cls, alarm_id):
+        csv_reader = CsvReader(alarm_file)
+        csv_reader.close_file()
+        if alarm_id in csv_reader.file_info.keys():
+            if alarm_id.startswith('1'):
+                logger.warning("The alarm id start with 1 is AeMS's alarm")
+            alarm_dict = csv_reader.get_by_id_index(alarm_id)
+            return alarm_dict
+        else:
+            logger.exception(NoSuchDeviceAlarm)
+
+
 
 
 henb = HeNB()
 # henb.run_cmd('echo $PATH')
-henb.reboot()
-henb.close()
+# henb.reboot()
+# henb.close()
+alarm = henb.parse_alarm_definition(alarm_id='10009')
+print(alarm['AlarmID'])
 # henb.get_parameter_by_oam("SIB1.SIB1.TAC")
 # henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
 # henb.get_parameter_by_oam("SIB1.SIB1.TAC")
