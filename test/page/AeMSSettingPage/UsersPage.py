@@ -10,6 +10,7 @@ class UsersPage(BasePage):
 
     def __init__(self, driver):
         super(UsersPage, self).__init__(driver)
+        self.column_names = None
         self.default_pwd = "casa1234"
         # attr value of user page
         self.v_add_user_btn = "addUser()"

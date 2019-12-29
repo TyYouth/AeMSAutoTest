@@ -15,7 +15,7 @@ class LoginPage(BasePage):
         self.e_repository = (By.NAME, 'repository')
         self.val_login_btn = "login()"
 
-    def login_aems(self, login_method='Local Database'):
+    def act_login_aems(self, login_method='Local Database'):
         self.send_keys(self.e_username, 'admin')
         self.send_keys(self.e_pwd, "casa")
         current_method = self.get_text(self.e_repository)

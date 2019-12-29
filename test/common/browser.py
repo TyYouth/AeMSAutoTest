@@ -31,7 +31,7 @@ class Browser(object):
             raise UnSupportBrowserTypeError("UnSupport browser type, support %s only" % ''.join(TYPES.keys()))
         self.accept_next_alert = None
 
-    def driver_init(self, maximize_windows=True, implicitly_wait=5):
+    def driver_init(self, maximize_windows=True, implicitly_wait=10):
         logger.info('driver init start, opened browser')
         self.driver = self.browser(executable_path=EXECUTABLE_PATH[self._type])
         if maximize_windows:
@@ -104,10 +104,10 @@ class Browser(object):
     def find_xpath(self, label_name=None, attr_name=None, value=None):
         try:
             if label_name and attr_name:
-                return self.driver.find_element_by_xpath(
-                    "//{0}[contains(@{1}, '{2}')]".format(label_name, attr_name, value))
+                return self.driver.find_element(By.XPATH,
+                                                "//{0}[contains(@{1}, '{2}')]".format(label_name, attr_name, value))
             # The value can be xpath directly
-            else:
+            elif value is not None:
                 return self.driver.find_element(by=By.XPATH, value=value)
         except NoSuchElementException as e:
             logger.error("can NOT find element by such a xpath")
@@ -116,8 +116,8 @@ class Browser(object):
     def finds_xpath(self, label_name=None, att_name=None, value=None):
         try:
             if label_name and att_name:
-                return self.driver.find_elements_by_xpath(
-                    "//{0}[contains(@{1}, '{2}')]".format(label_name, att_name, value))
+                return self.driver.find_elements(By.XPATH,
+                                                 "//{0}[contains(@{1}, '{2}')]".format(label_name, att_name, value))
             else:
                 return self.driver.find_elements(by=By.XPATH, value=value)
         except NoSuchElementException as e:
@@ -126,25 +126,25 @@ class Browser(object):
 
     def find_xpath_by_text(self, label_name, text_val):
         try:
-            web_ele = self.driver.find_element_by_xpath("//{}[text()='{}']".format(label_name, text_val))
+            web_ele = self.driver.find_element(By.XPATH, "//{0}[contains(text(), '{1}')]".format(label_name, text_val))
             return web_ele
         except NoSuchElementException as e:
             logger.error("can NOT find element by such a xpath")
             logger.exception(e.msg)
 
     # The value is css
-    def find_css(self, css_selector=None):
+    def find_css(self, css_value=None):
         try:
-            if css_selector:
-                return self.driver.find_element(by=By.CSS_SELECTOR, value=css_selector)
+            if css_value:
+                return self.driver.find_element(by=By.CSS_SELECTOR, value=css_value)
         except NoSuchElementException as e:
             logger.error("can NOT find element by such a css path")
             logger.exception(e.msg)
 
-    def finds_css(self, css_selector=None):
+    def finds_css(self, css_value=None):
         try:
-            if css_selector:
-                return self.driver.find_elements(by=By.CSS_SELECTOR, value=css_selector)
+            if css_value:
+                return self.driver.find_elements(by=By.CSS_SELECTOR, value=css_value)
         except NoSuchElementException as e:
             logger.error("can NOT find elements by such a css path")
             logger.exception(e.msg)
@@ -162,27 +162,7 @@ class Browser(object):
         except ScreenshotException as e:
             logger.exception(e.msg)
 
-    def close_alert_and_get_its_text(self):
-        try:
-            time.sleep(0.5)
-            alert = self.driver.switch_to.alert
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            logger.warning("There is a alert prompt")
-            logger.warning('The text of alert is:{}'.format(alert_text))
-            # return alert_text
-        finally:
-            self.accept_next_alert = True
-
-    def dismiss_alert(self):
-        try:
-            self.driver.switch_to.alert().dismiss()
-        except:
-            pass
-
+# Encapsulate selenium method
     # right click
     def right_click(self, web_element):
         ActionChains(self.driver).context_click(web_element).perform()

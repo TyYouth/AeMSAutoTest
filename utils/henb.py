@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # coding=utf-8
-
+from collections import defaultdict
 from utils.log import logger
-from utils.ssh import SShSession
+from utils.ssh import SSHSession
 from utils.config import Config
 
 
-class HeNB(SShSession):
+class HeNB(SSHSession):
     def __init__(self):
-        super(SShSession, self).__init__()
+        super(SSHSession, self).__init__()
         self.config = Config().get('HeNB')
         if self.config:
             self.host = self.config.get('host')
@@ -20,7 +20,7 @@ class HeNB(SShSession):
             self.tr069_file = self.config.get('TR069_file') if self.config.get(
                 'TR069_file') else '/config/tr069/tr069_agent.ini'
         self.connect()
-        self.device_info = {}
+        self.device_info = defaultdict()
 
     def get_parameter_by_oam(self, param_name):
         command = "echo {0}.get | {1}".format(param_name, self.oam_file_path)
@@ -104,19 +104,19 @@ class HeNB(SShSession):
         self.run_command_shell('reboot')
 
 
-
-henb = HeNB()
-# henb.run_cmd('echo $PATH')
-henb.reboot()
-henb.close()
-# henb.get_parameter_by_oam("SIB1.SIB1.TAC")
-# henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
-# henb.get_parameter_by_oam("SIB1.SIB1.TAC")
-# config = henb.get_config('ManagementServer.URLkjhfkj', '/config/tr069/tr069_agent.ini')
-# henb.set_config('ManagementServer.URL', "http://[172:0:17::99]:8080/hems-web-ui/ws/cwmp/",
-#                 '/config/tr069/tr069_agent.ini')
-# henb.get_module_info()
-# print(henb.device_info['ProductClass'])
-# henb.update_tr069_url()
-# henb.get_device_info()
-# print(henb.device_info)
+if __name__ == "__main__":
+    henb = HeNB()
+    # henb.run_cmd('echo $PATH')
+    henb.reboot()
+    henb.close()
+    # henb.get_parameter_by_oam("SIB1.SIB1.TAC")
+    # henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
+    # henb.get_parameter_by_oam("SIB1.SIB1.TAC")
+    # config = henb.get_config('ManagementServer.URLkjhfkj', '/config/tr069/tr069_agent.ini')
+    # henb.set_config('ManagementServer.URL', "http://[172:0:17::99]:8080/hems-web-ui/ws/cwmp/",
+    #                 '/config/tr069/tr069_agent.ini')
+    # henb.get_module_info()
+    # print(henb.device_info['ProductClass'])
+    # henb.update_tr069_url()
+    # henb.get_device_info()
+    # print(henb.device_info)

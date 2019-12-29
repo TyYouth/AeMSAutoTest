@@ -15,7 +15,7 @@ def to_str(bytes_or_str):
     return string_value
 
 
-class SShSession(object):
+class SSHSession(object):
     def __init__(self, host, user_name, pwd, port=22):
         self.host = host
         self.port = port
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     host = '172.0.13.185'
     username = 'root'
     pwd = 'casa'
-    henb_ssh = SShSession(host, username, pwd)
+    henb_ssh = SSHSession(host, username, pwd)
     henb_ssh.connect()
     henb_ssh.run_command_shell('ipsec status')
     # henb_ssh.run_command_shell('pwd', 'echo $SHELL')

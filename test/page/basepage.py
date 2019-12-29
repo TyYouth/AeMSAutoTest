@@ -1,13 +1,16 @@
 import os
 import datetime
 import time
-from types import MethodType
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException
 from utils.log import logger
 from utils.config import DRIVER_PATH
 from test.common.browser import Browser
 
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
+
+BY_METHOD = [By.ID, By.NAME, By.CLASS_NAME, By.CSS_SELECTOR, By.XPATH, By.TAG_NAME, By.PARTIAL_LINK_TEXT,
+             By.LINK_TEXT]
 
 
 class IncorrectPathWebElement(Exception):
@@ -15,14 +18,14 @@ class IncorrectPathWebElement(Exception):
 
 
 class BasePage(Browser):
+    column_names = None
+
     def __init__(self, driver=None):
         # if driver has been init, not need to init again
         if driver:
             self.driver = driver
         else:
             super(BasePage, self).__init__(browser_type='chrome')
-        self.by_method = [By.ID, By.NAME, By.CLASS_NAME, By.CSS_SELECTOR, By.XPATH, By.TAG_NAME, By.PARTIAL_LINK_TEXT,
-                          By.LINK_TEXT]
         # 遍历对象属性(和方法函数)
         # Traverse object properties (and method functions)
         self._dict = object.__getattribute__(self, '__dict__')
@@ -44,8 +47,8 @@ class BasePage(Browser):
         # try:
         if attr.startswith('_e_') or attr.startswith('e_'):
             value = self._dict[attr]
-            if isinstance(value, tuple) and len(value) == 2 and value[0] in self.by_method:
-                _web_element = self.find_element(*value)
+            if isinstance(value, tuple) and len(value) == 2 and value[0] in BY_METHOD:
+                _web_element = self.driver.find_element(*value)
                 return _web_element
             else:
                 raise IncorrectPathWebElement('{} is incorrect web element'.format(str(value)))
@@ -79,6 +82,7 @@ class BasePage(Browser):
             return elem_loc
 
     # Most of the drop-down boxes include similar content <select  ng-model="modal.user.userValidity" </select>
+
     def select_box(self, model_value, index=None, value=None, text=None):
         select_ele = self.find_xpath("select", "ng-model", model_value)
         if index:
@@ -130,43 +134,168 @@ class BasePage(Browser):
         logger.debug("click the cancel button")
         time.sleep(0.25)
 
-    # Most of the prompts include similar content
-    # <small class="help-block" ng-show="show value" >msg text</small>
     def prompt_msg(self, show_value=None):
-        if show_value:
+        """
+        # Most of the prompts include similar content
+        # <small class="help-block" ng-show="show value" >msg text</small>
+        :param show_value: value of ng-show
+        :return: str, prompt message
+        """
+        if show_value is not None:
             prompt_ele = self.find_xpath("small", "ng-show", show_value)
         # if show can not available and class is unique
         # class name will be include "ng-hide" when it's invisible or does not show on web
         else:
             prompt_ele = self.find_class("help-block")
-        msg = self.get_text(prompt_ele)
-        logger.debug("the prompt msg is: {}".format(msg))
-        return msg
+        prompt_msg = self.get_text(prompt_ele)
+        logger.debug("the prompt msg is: {}".format(prompt_msg))
+        return prompt_msg
+
+    # 处理网管弹出的div警告类对话框
+    def get_alert_text_and_dismiss(self):
+        alert = None
+        try:
+            time.sleep(0.5)
+            alert = self.driver.find_element_by_xpath("//div[@class='sweet-alert showSweetAlert visible']")
+        except NoSuchElementException:
+            logger.warning("There is no alert displayed")
+        finally:
+            if alert:
+                text = alert.find_element_by_xpath("//p[@class='lead text-muted']").text
+                logger.warning("The alert is shown, and its text is: " + text)
+                self.driver.find_element_by_xpath('//button[text()="OK"]').click()
+                return text
+            else:
+                return None
+
+    def get_column_names(self):
+        """
+        the most column name of AeMS web is like: <div ..... col-index="renderIndex"><span ... >Model</span> </div>
+        :return: tuple, column names of list
+        """
+        column_names = ()
+        xpath = "//div[@col-index='renderIndex']"
+        results = self.finds_xpath(value=xpath)
+        for column_name in results:
+            column_names += (column_name.text,)
+        logger.debug("the column names of current web is {}".format(column_names))
+        return column_names
+
+    def get_row_by_text(self, label_name, text_val, attr='ng-repeat'):
+        """
+        the most row value of AeMS web is like:
+        :param text_val:
+        :param label_name:
+        :param attr:
+        :return:
+        """
+        # 根据text_val寻找其包含ng-repeat属性的div先辈ancestor
+        # Find the ancestor of the div containing which contains `ng-repeat` attribute based on the text_val
+        row_text_element = self.find_xpath(
+            value="//{}[text()='{}']/ancestor::div[@{}]".format(label_name, text_val, attr))
+        row_val = row_text_element.text.split("\n")
+        logger.debug("the value of whole row is: {}".format(row_val))
+        return row_val
+
+    # 获取某值的Index
+    @staticmethod
+    def get_index_of_tuple(original_tuple, value):
+        """
+        to get index of tuple value
+        :param original_tuple:
+        :param value:
+        :return:
+        """
+        try:
+            return original_tuple.index(value)
+        except ValueError:
+            logger.error(ValueError)
+            logger.error("Failed to get {} from tuple {}".format(value, original_tuple))
+
+    def is_text_unique(self, unique_text, label_name):
+        """
+        get web elems numbers to judge is a text unique on the web,
+        :param unique_text:
+        :param label_name:
+        :return: bool,
+        """
+        num_of_text = self.finds_xpath(value="//{}[text()='{}']".format(label_name, unique_text))
+        if num_of_text == 1:
+            return True
+        else:
+            logger.warning("The {} is NOT unique on the web, the result may not correct".format(unique_text))
+            return False
+
+    def get_val_by_unique_text(self, unique_text, attr, label_name='div'):
+        """
+        Get attr based on unique value (best)
+        such as ne_online_status = get_val_by_unique_text(identity, "Node Backhaul Status")
+        :param unique_text: str, unique text on the web
+        :param attr: str, attr name
+        :param label_name:
+        :return: attr value
+        """
+        attribute_names = self.get_column_names()
+        index = self.get_index_of_tuple(attribute_names, attr)
+        self.is_text_unique(label_name, unique_text)
+        row_texts = self.get_row_by_text(label_name, unique_text)
+        logger.debug("the attr {} of {} is {}".format(attr, unique_text, row_texts[index]))
+        return row_texts[index]
 
     # Action for base page
     def act_logout_aems(self):
+        """Logout AeMS"""
         self.click(self._e_logout_btn)
         self.ok_btn()
 
-    def act_input_text_prompt(self, input_text_ele, input_value, show_value=None, expected_msg=None,
-                              is_false=True):
+    def act_open_tab(self, *tabs_names):
+        """
+        :param tabs_names: tuple, tabs names
+        """
+        # 直接使用contains 来忽略为了排版而使用的前端空格, 参数直接为tab name 即可
+        tab_parent_xpath = "//a[contains(text(), '{}')]/parent::li"
+        for tab in tabs_names:
+            # 是否有展开标记的class 属性, 没有的话代表是末尾标签, 直接点击, 不会
+            tab_parent_elem = self.find_xpath(value=tab_parent_xpath.format(tab))
+            tab_parent_class_attr = self.get_attr(tab_parent_elem, "class")
+            if tab_parent_class_attr:
+                # if the tab has been not unfolded
+                if tab_parent_class_attr == "sub-menu":
+                    try:
+                        self.click(self.find_xpath_by_text('a', tab))
+                    except ElementNotVisibleException:
+                        visible_tab_xpath = "//a[contains(text(), '{}') and @data-ui-sref='system.Setting']".format(tab)
+                        self.click(self.find_xpath(value=visible_tab_xpath))
+                elif tab_parent_class_attr == "sub-menu toggled":
+                    pass
+            else:
+                try:
+                    self.click(self.find_xpath_by_text('a', tab))
+                except ElementNotVisibleException:
+                    visible_tab_xpath = "//a[contains(text(), '{}') and @ng-show='true']".format(tab)
+                    self.click(self.find_xpath(visible_tab_xpath))
+        time.sleep(0.25)
+
+    def act_input_text(self, input_text_ele, input_value, is_false=True, show_value=None):
+        """
+        :param input_text_ele: web element of input text
+        :param input_value: value to input
+        :param is_false: True for negative test
+        :param show_value: value of ng-show
+        :return: str, prompt message
+        """
         self.send_keys(input_text_ele, input_value)
-        result = False
-        if is_false:
-            prompt_msg = self.prompt_msg(show_value=show_value)
-            if expected_msg == prompt_msg and (self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False)
-                                                                     ) is False):
-                result = True
-        elif not (is_false and show_value and expected_msg):
-            if self.is_button_enable(self.button(self.v_sys_save_btn, is_click=False)) is True:
-                result = True
-        return result
+        if is_false and (show_value is not None):
+            prompt_msg = self.prompt_msg(show_value)
+            return prompt_msg
 
     def act_upload_file(self, file_path):
+        """
+        :param file_path: path of file to upload
+        """
         self.button('upload()')
         self.upload_file(self._e_file_select_input, file_path)
         try:
-            # it is a ok button in fact
             logger.debug("To upload file: " + file_path)
             self.ok_btn()
         except:

@@ -14,7 +14,7 @@ class TestFileManagement(AeMSCase, FileManagementPage):
 
     def setUp(self):
         AeMSCase.setUp(self)
-        self.open_tab(" Small Cell Management", "File Management")
+        self.act_open_tab("Small Cell Management", "File Management")
         if not AeMSCase.column_names:
             AeMSCase.column_names = self.get_column_names()
 

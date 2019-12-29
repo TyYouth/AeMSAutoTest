@@ -13,11 +13,9 @@ class TestUsers(AeMSCase, UsersPage):
 
     def setUp(self):
         AeMSCase.setUp(self)
-        if users_page._e_cancel_btn:
-            self.click(users_page._e_cancel_btn)
-        self.open_tab("AeMS Settings", "Users")
+        self.act_open_tab("AeMS Settings", "Users")
 
-    def test_00_user_tip(self):
+    def test_00100_user_prompt(self):
         """test the tip of add user"""
         users_page.action_fill_user_info()
         users_page.ok_btn()
@@ -25,15 +23,17 @@ class TestUsers(AeMSCase, UsersPage):
         self.assertEqual("The name has already been existed", prompt_msg)
 
         users_page.send_keys(users_page.e_username, "ab")
-        prompt_msg = self.prompt_msg(show_value="setForm.user_name.$dirty && setForm.user_name.$invalid")
+        # prompt_msg = self.prompt_msg(show_value="setForm.user_name.$dirty && setForm.user_name.$invalid") # pico
+        prompt_msg = self.prompt_msg(show_value="setForm.username.$dirty && setForm.username.$invalid")  # femto
         self.assertEqual('required letters number or "_"(3 to 16 characters)', prompt_msg)
 
         users_page.send_keys(users_page.e_username, "abcdefg0123456789")
-        prompt_msg = self.prompt_msg(show_value="setForm.user_name.$dirty && setForm.user_name.$invalid")
+        prompt_msg = self.prompt_msg(show_value="setForm.username.$dirty && setForm.username.$invalid")
         self.assertEqual('required letters number or "_"(3 to 16 characters)', prompt_msg)
         sleep(0.25)
+        users_page.cancel_btn()
 
-    def test_01_pwd_tip(self):
+    def test_00110_pwd_prompt(self):
         """Test the tip of password"""
         users_page.action_fill_user_info(user_name="pwdTip")
         users_page.input_text(users_page.v_user_pwd_input_text, "aaaabbbb")
@@ -54,10 +54,11 @@ class TestUsers(AeMSCase, UsersPage):
         prompt_msg = self.prompt_msg(
             show_value="modal.user.password && !isNoPassVaild && setForm.confirmpassword.$invalid")
         self.assertEqual('Passwords do not match', prompt_msg)
+        users_page.cancel_btn()
 
-    def test_02_phone_tip(self):
+    def test_00120_phone_prompt(self):
+        """Test phone prompt"""
         users_page.action_fill_user_info(user_name='phoneTest')
-        users_page.ok_btn()
         users_page.send_keys(users_page.e_primary_phone, "(444)-555-666")
         users_page.send_keys(users_page.e_secondary_phone, '(444)-555-666')
         sleep(0.25)
@@ -80,6 +81,8 @@ class TestUsers(AeMSCase, UsersPage):
         sleep(0.25)
         prompt_msg = self.prompt_msg("isSame1")
         self.assertEqual('Phone2 should not be the same as Phone1', prompt_msg)
+        sleep(0.25)
+        users_page.cancel_btn()
 
     def tearDown(self):
         AeMSCase.tearDown(self)
