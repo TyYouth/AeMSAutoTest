@@ -3,7 +3,7 @@
 from time import sleep
 import os
 from test.page.basepage import BasePage
-from utils.config import DATA_FILE
+from utils.config import DATA_PATH
 from utils.log import logger
 
 
@@ -15,7 +15,7 @@ class FileManagementPage(BasePage):
     @classmethod
     def get_upload_files(cls, version):
         cls.path_list = []
-        version_upload_file = os.path.join(DATA_FILE, ''.join([version, '_upload']))
+        version_upload_file = os.path.join(DATA_PATH, ''.join([version, '_upload']))
         version_file_paths = os.listdir(version_upload_file)
         if version == 'pico':
             for files_path in version_file_paths:

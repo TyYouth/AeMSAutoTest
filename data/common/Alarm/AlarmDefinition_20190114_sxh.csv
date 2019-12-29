@@ -1,0 +1,53 @@
+AlarmID,EventType,ProbableCause,SpecificProblem,PerceivedSeverity,OID
+10001,Equipment,Memory usage is high,Memory usage is high,Major,1.3.6.1.4.1.20858.10.104.101.2.1.1
+10002,Equipment,Cpu usage is high,Cpu usage is high,Major,1.3.6.1.4.1.20858.10.104.101.2.1.2
+10003,Equipment,Hard disk usage is high,Hard disk usage is high,Major,1.3.6.1.4.1.20858.10.104.101.2.1.3
+10004,Equipment,lost connection with the standby,HA communication Alarm,Major,1.3.6.1.4.1.20858.10.104.101.2.1.4
+10005,Equipment,connection to DB slave is lost,DB connection Alarm,Major,1.3.6.1.4.1.20858.10.104.101.2.1.5
+10006,Equipment,connection to DB arbiter is lost,DB connection Alarm,Major,1.3.6.1.4.1.20858.10.104.101.2.1.6
+10007,Equipment,service network interface goes down,network interface Alarm,Major,1.3.6.1.4.1.20858.10.104.101.2.1.7
+10008,Communications,device state change to offline,device offline Alarm,Major,1.3.6.1.4.1.20858.10.104.101.2.1.8
+20001,Operational Violation,Out of Service,L3 not detected,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.1
+20002,Operational Violation,Out of Service,L2 not detected,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.2
+20003,Operational Violation,Out of Service,KPI Agent not detected,Minor,1.3.6.1.4.1.20858.10.104.101.2.2.3
+20004,Processing Error,Storage Capacity Problem,Flash memory usage,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.4
+20005,Communications,Connection Establishment Error,MME connection is down,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.5
+20006,Quality of Service,Congestion,RRM overload,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.6
+20007,Processing Error,File Error,Error accessing file,Minor,1.3.6.1.4.1.20858.10.104.101.2.2.7
+20008,Processing Error,CPU Cycles Limit Exceeded,High CPU load,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.8
+20009,Quality of Service,Excessive Retransmission Rate,High NACK level,Major,1.3.6.1.4.1.20858.10.104.101.2.2.9
+20010,Equipment,Loss Of Synchronization,Over-the-air synchronization lost,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.10
+20011,Equipment,Loss Of Synchronization,GPS synchronization lost,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.11
+20012,Equipment,Out of Service,Cell synchronization failure,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.12
+20013,Communications,Communication Protocol Error,SCTP failure,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.13
+20014,Communications,LAN Error,Ethernet error,Major,1.3.6.1.4.1.20858.10.104.101.2.2.14
+20015,Environmental,High Temperature,CPU Temperature Unacceptable,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.15
+20016,Environmental,High Temperature,PA Temperature Unacceptable,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.16
+20017,Security Service or Mechanism Violation,Unauthorized Access Attempt,HTTP failed access,Minor,1.3.6.1.4.1.20858.10.104.101.2.2.17
+20018,Processing Error,Configuration Or Customization Error,OAM errors,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.18
+20019,Processing Error,Out Of Memory,RAM memory full,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.19
+20020,Quality of Service,Threshold Crossed,Threshold Crossed: RLF,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.20
+20021,Quality of Service,Threshold Crossed,Threshold Crossed: Low SINR,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.21
+20022,Equipment,Out of Service,PA Biasing Failure,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.22
+20023,Quality of Service,Performance Degraded,PCI Collision,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.23
+20024,Quality of Service,Performance Degraded,PCI Confusion,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.24
+20025,Equipment,Out of Service,Kill Switch,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.25
+20026,Operational Violation,Out of Service,L1 start timeout,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.26
+20027,Operational Violation,Out of Service,DSP or PHY Crash,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.27
+20028,Equipment,Clock Synchronization Problem,Cell not synchronized,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.28
+20029,Equipment,Loss Of Synchronization,Synchronization lost with all sources,Major,1.3.6.1.4.1.20858.10.104.101.2.2.29
+20030,Processing Error,Configuration Or Customization Error,Invalid PHY or RF configuration,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.30
+20031,Processing Error,Configuration Or Customization Error,System information configuration failure,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.31
+20032,Processing Error,File Error,Failed backing-up configuration file,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.32
+20033,Processing Error,File Error,Failed restoring configuration file,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.33
+20034,Communications,Connection Establishment Error,Single MME connection is down,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.34
+20035,Communications,Connection Establishment Error,IPsec tunnel is down,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.35
+20036,Communications,Connection Establishment Error,IPsec tunnel expiry,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.36
+20037,Communications,Connection Establishment Error,IPsec IKE SA expiry,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.37
+20038,Communications,Connection Establishment Error,Operator Certificate Expired,Major,1.3.6.1.4.1.20858.10.104.101.2.2.38
+20039,Equipment,Loss Of Synchronization,Holdover Period Expiration,Major,1.3.6.1.4.1.20858.10.104.101.2.2.39
+20040,Equipment,Reboot,Administrative Reboot,Minor,1.3.6.1.4.1.20858.10.104.101.2.2.40
+20041,Equipment,Reboot,Forced Reboot,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.41
+20042,Communications,Connection Establishment Error,Max MME connection attempts reached for all MME,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.42
+20043,Processing Error,Sofrware Error,Reboot Loop,Critical,1.3.6.1.4.1.20858.10.104.101.2.2.43
+20044,Communications,Connection Establishment Error,DNS resolution failure,Warning,1.3.6.1.4.1.20858.10.104.101.2.2.44

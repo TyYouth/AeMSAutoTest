@@ -6,7 +6,6 @@ from selenium.common.exceptions import ElementNotVisibleException, NoSuchElement
 from utils.log import logger
 from utils.config import DRIVER_PATH
 from test.common.browser import Browser
-
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
 BY_METHOD = [By.ID, By.NAME, By.CLASS_NAME, By.CSS_SELECTOR, By.XPATH, By.TAG_NAME, By.PARTIAL_LINK_TEXT,

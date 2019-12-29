@@ -1,9 +1,21 @@
 #!/usr/bin/env python
 # coding=utf-8
+<<<<<<< HEAD
+=======
+import os
+>>>>>>> 94a5467e784dcd3b6220a594052033bb4000a86e
 from collections import defaultdict
 from utils.log import logger
 from utils.ssh import SSHSession
 from utils.config import Config
+from utils.config import COMMON_FILE
+from utils.CSV_handler import CsvReader
+alarm_file = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
+value_change = os.path.join(COMMON_FILE, 'common', 'TR069Packet', '4_value_change.xml')
+
+
+class NoSuchDeviceAlarm(Exception):
+    logger.exception("No such a Device Alarm")
 
 
 class HeNB(SSHSession):
@@ -19,8 +31,13 @@ class HeNB(SSHSession):
                 'oam_file') else '/usr/sbin/oam'
             self.tr069_file = self.config.get('TR069_file') if self.config.get(
                 'TR069_file') else '/config/tr069/tr069_agent.ini'
+<<<<<<< HEAD
         self.connect()
         self.device_info = defaultdict()
+=======
+        # self.connect()
+        self.device_info = {}
+>>>>>>> 94a5467e784dcd3b6220a594052033bb4000a86e
 
     def get_parameter_by_oam(self, param_name):
         command = "echo {0}.get | {1}".format(param_name, self.oam_file_path)
@@ -103,7 +120,21 @@ class HeNB(SSHSession):
     def reboot(self):
         self.run_command_shell('reboot')
 
+    @classmethod
+    def parse_alarm_definition(cls, alarm_id):
+        csv_reader = CsvReader(alarm_file)
+        csv_reader.close_file()
+        if alarm_id in csv_reader.file_info.keys():
+            if alarm_id.startswith('1'):
+                logger.warning("The alarm id start with 1 is AeMS's alarm")
+            alarm_dict = csv_reader.get_by_id_index(alarm_id)
+            return alarm_dict
+        else:
+            logger.exception(NoSuchDeviceAlarm)
 
+
+
+<<<<<<< HEAD
 if __name__ == "__main__":
     henb = HeNB()
     # henb.run_cmd('echo $PATH')
@@ -120,3 +151,23 @@ if __name__ == "__main__":
     # henb.update_tr069_url()
     # henb.get_device_info()
     # print(henb.device_info)
+=======
+
+henb = HeNB()
+# henb.run_cmd('echo $PATH')
+# henb.reboot()
+# henb.close()
+alarm = henb.parse_alarm_definition(alarm_id='10009')
+print(alarm['AlarmID'])
+# henb.get_parameter_by_oam("SIB1.SIB1.TAC")
+# henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
+# henb.get_parameter_by_oam("SIB1.SIB1.TAC")
+# config = henb.get_config('ManagementServer.URLkjhfkj', '/config/tr069/tr069_agent.ini')
+# henb.set_config('ManagementServer.URL', "http://[172:0:17::99]:8080/hems-web-ui/ws/cwmp/",
+#                 '/config/tr069/tr069_agent.ini')
+# henb.get_module_info()
+# print(henb.device_info['ProductClass'])
+# henb.update_tr069_url()
+# henb.get_device_info()
+# print(henb.device_info)
+>>>>>>> 94a5467e784dcd3b6220a594052033bb4000a86e
