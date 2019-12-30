@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from time import sleep
-from utils.log import logger
+from utils.common.log import logger
 from utils.config import Config
 from test.page.LoginPage import LoginPage
 

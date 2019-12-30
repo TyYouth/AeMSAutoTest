@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 import csv
 import os
-from time import sleep
 from collections import defaultdict
-from utils.log import logger
+from utils.common.log import logger
 from utils.config import COMMON_FILE
 
 alarm_file = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')

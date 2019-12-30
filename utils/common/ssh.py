@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import select
 import paramiko
-import socket
 from scp import SCPClient
 from time import sleep
-from utils.log import logger
+from utils.common.log import logger
+from utils.time_handle import DateTime
 
 
 def to_str(bytes_or_str):
@@ -16,13 +15,15 @@ def to_str(bytes_or_str):
 
 
 class SSHSession(object):
+    __transport = None
+    scp_client = None
+    sftp_client = None
+
     def __init__(self, host, user_name, pwd, port=22):
         self.host = host
         self.port = port
         self.user_name = user_name
         self.pwd = pwd
-        self.__transport = None
-        self.scp_client = None
 
     def connect(self):
         try:
@@ -32,6 +33,7 @@ class SSHSession(object):
             self.__transport = transport
             # the henb is not support SFTP and init transport as SCP"
             self.scp_client = SCPClient(self.__transport)
+            self.sftp_client = paramiko.SFTPClient.from_transport(self.__transport)
         except Exception as e:
             logger.exception(e)
 
@@ -40,6 +42,23 @@ class SSHSession(object):
 
     def download_file(self, remote_file_path, target_file_path):
         self.scp_client.get(remote_file_path, target_file_path)
+
+    def list_dir_attr(self, target_path="."):
+        """
+        :param target_path: path to be listed
+        :return: list of files' SFTPAttributes which is extend `os.stat` object
+        get value like: list_file_attr[0].st_size
+        """
+        list_file_attr = self.sftp_client.listdir_attr(target_path)
+        return list_file_attr
+
+    def list_dir(self, target_path="."):
+        """
+        :param target_path: path to be listed
+        :return: list of file name
+        """
+        list_file_name = self.sftp_client.listdir(target_path)
+        return list_file_name
 
     def run_cmd(self, command=None):
         ssh_session = paramiko.SSHClient()
@@ -68,6 +87,12 @@ class SSHSession(object):
         channel.close()
         logger.debug(receive.decode('UTF-8'))
 
+    def get_date_time(self, is_transfer=None):
+        date_time = self.run_cmd("date")
+        if is_transfer is not None:
+            date_time = DateTime.to_datetime_by(date_time, time_format="%a %b %d %H:%M:%S %Z %Y")
+        return date_time
+
     def close(self):
         self.__transport.close()
 
@@ -82,6 +107,7 @@ if __name__ == '__main__':
     henb_ssh = SSHSession(host, username, pwd)
     henb_ssh.connect()
     henb_ssh.run_command_shell('ipsec status')
+    print(henb_ssh.get_date_time(is_transfer=True))
     # henb_ssh.run_command_shell('pwd', 'echo $SHELL')
     # henb_ssh.download_file('/config/l3/femtoconfig.ini', r"E:/smallcell/versionFiles/femtoconfig.ini")
     henb_ssh.close()

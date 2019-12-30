@@ -3,7 +3,7 @@ import datetime
 import time
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException
-from utils.log import logger
+from utils.common.log import logger
 from utils.config import DRIVER_PATH
 from test.common.browser import Browser
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
@@ -263,6 +263,7 @@ class BasePage(Browser):
                     try:
                         self.click(self.find_xpath_by_text('a', tab))
                     except ElementNotVisibleException:
+                        # 两个Configuration: AeMS Setting, Alarm Management
                         visible_tab_xpath = "//a[contains(text(), '{}') and @data-ui-sref='system.Setting']".format(tab)
                         self.click(self.find_xpath(value=visible_tab_xpath))
                 elif tab_parent_class_attr == "sub-menu toggled":

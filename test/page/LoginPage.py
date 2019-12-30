@@ -4,7 +4,7 @@
 from time import sleep
 from test.page.basepage import BasePage
 from selenium.webdriver.common.by import By
-from utils.log import logger
+from utils.common.log import logger
 
 
 class LoginPage(BasePage):

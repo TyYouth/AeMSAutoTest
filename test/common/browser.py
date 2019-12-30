@@ -1,7 +1,7 @@
 import os
 import inspect
 import time
-from utils.log import logger
+from utils.common.log import logger
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains

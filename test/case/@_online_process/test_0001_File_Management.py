@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-import os
 from time import sleep
-from utils.log import logger
 from test.common.AeMSCase import AeMSCase
 from test.page.SmallCellManagemetPage.FileManagementPage import FileManagementPage
 

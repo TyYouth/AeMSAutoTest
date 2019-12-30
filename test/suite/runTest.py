@@ -1,7 +1,7 @@
 import unittest
 from utils.config import CASE_PATH, REPORT_FILE
-from utils.HTMLTestRunner import HTMLTestRunner
-from utils.mail import Mail
+from utils.common.HTMLTestRunner import HTMLTestRunner
+from utils.common.mail import Mail
 
 
 def main():

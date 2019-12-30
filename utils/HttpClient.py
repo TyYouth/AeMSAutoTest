@@ -56,12 +56,3 @@ class HTTPClient(object):
         self.close()
 
 
-if __name__ == '__main__':
-    auth = ('TyYouth', 'hua852456')
-    headers = {'User-Agent': 'python-requests/2.21.0'}
-    http_client = HTTPClient(basic_url, auth=auth)
-    http_client.build_url('user/emails')
-    http_client.post(json=['Ty_test@email.com'])
-    print("----------")
-    http_client.get()
-    http_client.close()

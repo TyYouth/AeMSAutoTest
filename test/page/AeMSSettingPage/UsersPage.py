@@ -5,6 +5,8 @@ from time import sleep
 from test.page.basepage import BasePage
 from selenium.webdriver.common.by import By
 
+from utils.time_handle import DateTime
+
 
 class UsersPage(BasePage):
 
@@ -47,9 +49,9 @@ class UsersPage(BasePage):
             self.select_box(self.v_account_expiration_select_box, value="never")
             self.select_box(self.v_pwd_expiration_select_box, value="never")
         elif (not is_expiration_never) and account_days_delta and pwd_days_delta:
-            account_expiration = self.expected_time(days_delta=account_days_delta)
+            account_expiration = DateTime.except_time(days_delta=account_days_delta)
             self.send_keys(self.e_account_expiration, account_expiration)
-            password_expiration = self.expected_time(days_delta=pwd_days_delta)
+            password_expiration = DateTime.except_time(days_delta=pwd_days_delta)
             self.send_keys(self.e_pwd_expiration, password_expiration)
         # fill in default pwd
         if not user_pwd:

@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from time import sleep
 import os
 from test.page.basepage import BasePage
 from utils.config import DATA_PATH
-from utils.log import logger
+from utils.common.log import logger
 
 
 class FileManagementPage(BasePage):

@@ -9,7 +9,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from utils.log import logger
+from utils.common.log import logger
 from utils.config import Config, REPORT_FILE
 
 
