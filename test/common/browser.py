@@ -38,7 +38,7 @@ class Browser(object):
             self.driver.maximize_window()
         self.driver.implicitly_wait(implicitly_wait)
         self.accept_next_alert = True
-        return self
+        return self.driver
 
     # get driver
     def get_driver(self):

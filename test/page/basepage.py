@@ -17,24 +17,31 @@ class IncorrectPathWebElement(Exception):
 
 
 class BasePage(Browser):
-    column_names = None
 
     def __init__(self, driver=None):
+        self.column_names = None
         # if driver has been init, not need to init again
         if driver:
             self.driver = driver
         else:
             super(BasePage, self).__init__(browser_type='chrome')
+            # self.browser = Browser(browser_type='chrome')
+            # self.driver = self.browser.driver_init()
         # 遍历对象属性(和方法函数)
         # Traverse object properties (and method functions)
         self._dict = object.__getattribute__(self, '__dict__')
+
         # general element in all page, start with _e_
         self._e_logout_btn = (By.XPATH, "//li[@ng-click='signOut()']")
         self._e_ok_btn = (By.XPATH, "//button[@ng-click='ok()']")
-        self._e_cancel_btn = (By.XPATH, "//button[@ng-click='cancel()']")
         self._e_file_select_input = (By.XPATH, "//input[@ng-file-select='onFileSelect($files)']")
         # self._e_column_name = (By.XPATH, "//div[@col-index='renderIndex']")
+
+        # general element value in all page, start with _e_
+        self._v_ok_btn = "ok()"
+        self._v_cancel_btn = "cancel()"
         # self._v_add_btn = "add()"
+
 
     def __getattribute__(self, attr):
         """
@@ -55,16 +62,6 @@ class BasePage(Browser):
             return object.__getattribute__(self, attr)
         # except AttributeError as e:
         #     logger.exception(e)
-
-    @staticmethod
-    def expected_time(days_delta=0, min_delta=0):
-        """
-            :param days_delta: int, delta day
-            :param min_delta: int, delta minute
-            :return: expected time
-        """
-        expected_time = datetime.datetime.now() + datetime.timedelta(days=days_delta, minutes=min_delta)
-        return expected_time.strftime('%Y-%m-%d %H:%M:%S')
 
     # Most of the aems input text include similar content: <input type="text ng-model="modal.data.alarmId">
     def input_text(self, model_value, keys=None, clear_first=True):
@@ -93,12 +90,13 @@ class BasePage(Browser):
         else:
             return select_ele
 
-    # Most of the BUTTONS include similar content <button class="class value" ng-click="login()">Login</button>
     def button(self, click_value, is_click=True):
         """
+        # Most of the BUTTONS include similar content <button class="class value" ng-click="login()">Login</button>
+        but other with `li` tab, like logout button
         find button by value and click
         :param click_value:  value of ng-click
-        :param is_click: click or not
+        :param is_click: bool, click or not
         :return: None
         """
         button_element = self.find_xpath("button", "ng-click", click_value)
@@ -122,16 +120,21 @@ class BasePage(Browser):
         return self.is_button_enable(self._e_ok_btn)
 
     def ok_btn(self):
-        if self.is_ok_btn_enable():
-            self.click(self._e_ok_btn)
+        ok_btn = self.button(self._v_ok_btn, is_click=False)
+        if self.is_button_enable(ok_btn):
+            self.click(ok_btn)
             logger.debug("click the ok button")
         else:
-            logger.debug("the ok button is not clickable")
+            logger.warning("the ok button is not clickable")
 
     def cancel_btn(self):
-        self.click(self._e_cancel_btn)
-        logger.debug("click the cancel button")
-        time.sleep(0.25)
+        cancel_btn = self.button(self._v_cancel_btn, is_click=False)
+        if self.is_button_enable(cancel_btn):
+            self.click(cancel_btn)
+            logger.debug("click the cancel button")
+            time.sleep(0.25)
+        else:
+            logger.warning("the cancel button is NOT clickable")
 
     def prompt_msg(self, show_value=None):
         """
@@ -150,19 +153,22 @@ class BasePage(Browser):
         logger.debug("the prompt msg is: {}".format(prompt_msg))
         return prompt_msg
 
-    # 处理网管弹出的div警告类对话框
     def get_alert_text_and_dismiss(self):
+        """
+        to handle the div prompt alert session
+        :return: alert text
+        """
         alert = None
         try:
             time.sleep(0.5)
-            alert = self.driver.find_element_by_xpath("//div[@class='sweet-alert showSweetAlert visible']")
+            alert = self.find_xpath("//div[@class='sweet-alert showSweetAlert visible']")
         except NoSuchElementException:
             logger.warning("There is no alert displayed")
         finally:
             if alert:
                 text = alert.find_element_by_xpath("//p[@class='lead text-muted']").text
-                logger.warning("The alert is shown, and its text is: " + text)
-                self.driver.find_element_by_xpath('//button[text()="OK"]').click()
+                logger.warning("The alert is shown, and its text is: {}".format(text))
+                self.ok_btn()
                 return text
             else:
                 return None
@@ -196,7 +202,6 @@ class BasePage(Browser):
         logger.debug("the value of whole row is: {}".format(row_val))
         return row_val
 
-    # 获取某值的Index
     @staticmethod
     def get_index_of_tuple(original_tuple, value):
         """
@@ -213,7 +218,7 @@ class BasePage(Browser):
 
     def is_text_unique(self, unique_text, label_name):
         """
-        get web elems numbers to judge is a text unique on the web,
+        get web elem numbers to judge is a text unique on the web or not
         :param unique_text:
         :param label_name:
         :return: bool,
@@ -252,9 +257,10 @@ class BasePage(Browser):
         :param tabs_names: tuple, tabs names
         """
         # 直接使用contains 来忽略为了排版而使用的前端空格, 参数直接为tab name 即可
+        # (或者可以使用<a href="xx" > 即使用 link text, 但是需要特殊处理可展开tab)
         tab_parent_xpath = "//a[contains(text(), '{}')]/parent::li"
         for tab in tabs_names:
-            # 是否有展开标记的class 属性, 没有的话代表是末尾标签, 直接点击, 不会
+            # 是否有展开标记的class 属性, 没有的话代表是末尾标签, 直接点击, 不会有什么影响
             tab_parent_elem = self.find_xpath(value=tab_parent_xpath.format(tab))
             tab_parent_class_attr = self.get_attr(tab_parent_elem, "class")
             if tab_parent_class_attr:
@@ -263,7 +269,7 @@ class BasePage(Browser):
                     try:
                         self.click(self.find_xpath_by_text('a', tab))
                     except ElementNotVisibleException:
-                        # 两个Configuration: AeMS Setting, Alarm Management
+                        # two Configuration tabs in: AeMS Setting, Alarm Management
                         visible_tab_xpath = "//a[contains(text(), '{}') and @data-ui-sref='system.Setting']".format(tab)
                         self.click(self.find_xpath(value=visible_tab_xpath))
                 elif tab_parent_class_attr == "sub-menu toggled":

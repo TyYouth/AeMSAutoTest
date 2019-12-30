@@ -19,16 +19,18 @@ class TestConfigs(AeMSCase, BasePage):
 
     def test_00_sys_setting_prompt(self):
         """test prompt of system setting"""
-        logout_time_show_value = "sysForm.logoutTime.$dirty&&sysForm.logoutTime.$invalid"
+        v_logout_time_show_value = "sysForm.logoutTime.$dirty&&sysForm.logoutTime.$invalid"
         logout_time_input_text = config_page.e_logout_time_input_text
         excepted_logout_time_prompt_msg = "Value should be integer and between 15-60."
         input_values = ["0", "65", "ab@1"]
         for input_value in input_values:
+            prompt_msg = None
             logger.debug("test for input value: {}".format(input_value))
             prompt_msg = config_page.act_input_text(input_text_ele=logout_time_input_text,
                                                     input_value=input_value,
                                                     is_false=True,
-                                                    show_value=logout_time_show_value)
+                                                    show_value=v_logout_time_show_value)
+            sleep(0.25)
             self.assertEqual(excepted_logout_time_prompt_msg, prompt_msg)
 
     def test_01_switch_log_setting(self):

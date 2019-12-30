@@ -37,10 +37,10 @@ class UsersPage(BasePage):
     def action_click_add_btn(self):
         self.button(self.v_add_user_btn)
 
-    def action_fill_user_info(self, user_name='Admin', user_pwd=None, permission_group='Admin', given_name="autoTest",
+    def action_fill_user_info(self, username='Admin', user_pwd=None, permission_group='Admin', given_name="autoTest",
                               is_expiration_never=True, account_days_delta=None, pwd_days_delta=None):
         self.action_click_add_btn()
-        self.send_keys(self.e_username, user_name)
+        self.send_keys(self.e_username, username)
         self.send_keys(self.e_given_name, given_name)
         self.select_box(self.v_permission_select_box, text=permission_group)
         # self.select_by_text(self.e_permission_select, permission_group)
