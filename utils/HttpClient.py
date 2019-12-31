@@ -4,6 +4,7 @@ import requests
 import json
 from requests import session
 from requests import exceptions
+from utils.common.log import logger
 
 basic_url = 'https://api.github.com'
 

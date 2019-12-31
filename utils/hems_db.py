@@ -18,13 +18,22 @@ class HemsDB(MysqlSession):
         super().__init__(self.host, self.username, self.pwd, self.db_name)
         self.db_data = defaultdict()
 
-    def get_cm_start_time(self):
+    def get_cm_config(self):
         # 'cmStartTime': datetime.datetime(2019, 12, 17, 20, 0)
-        sql_command = "select cmStartTime from inventorydump where id = 1"
-        cm_start_time = self.execute_sql(sql_command)['cmStartTime']
-        return cm_start_time
+        sql_command = "select timeLimit,cmStartTime from inventorydump where id = 1;"
+        cm_config = self.execute_sql(sql_command)
+        return cm_config
+
+    def get_inventory_config(self):
+        sql_cmd = "select timeLimit,cmStartTime from inventorydump where id = 3;"
+        inventory_config = self.execute_sql(sql_cmd)
+        return inventory_config
 
 
 if __name__ == "__main__":
-    hemsdb = HemsDB()
-    print(hemsdb.get_cm_start_time())
+    hems_db = HemsDB()
+    cm_config = hems_db.get_cm_config()
+    print(cm_config)
+    print(list(cm_config.keys())[0])
+    inventory_config = hems_db.get_inventory_config()
+    print(inventory_config)

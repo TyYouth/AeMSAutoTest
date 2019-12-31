@@ -9,6 +9,10 @@ AeMS:
   # default user: admin to login
   web_user: admin
   web_pwd: casa
+  northbound_user:
+    permission: Webservice
+    username: ntapi
+    password: casa1234
   backend_user: root
   backend_pwd: casa
   mysql:
@@ -28,7 +32,15 @@ HeNB:
   password: casa
   oam_file: /usr/sbin/oam
   TR069_file: /config/tr069/tr069_agent.ini
-
+  GPS:
+    logcal_file: /config/tr069/parameters.csv
+    ScanStatus: Success # Success or Indeterminate for bad gps
+    # Boston
+    latitude_1: 42691842
+    longitude_1: -71203095
+    # Kansas
+    latitude_2: 42691842
+    longitude_2: -71203095
 # HeNB Config
 #file name
 femtoconfig.ini:

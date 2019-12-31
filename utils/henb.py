@@ -54,8 +54,8 @@ class HeNB(SSHSession):
 
     # sed -n "/^\s*use_ipv6\s*=/p" /config/l3/femtoconfig.ini
     # \s* 匹配空格 \s* is for match space
-    def get_config(self, config_name, target_file_path):
-        command = 'sed -n "/^\s*{0}\s*=/p" {1}'.format(config_name, target_file_path)
+    def get_config(self, config_name, target_file_path, split="="):
+        command = 'sed -n "/^\s*{0}\s*{2}/p" {1}'.format(config_name, target_file_path, split)
         logger.debug("try to get HeNB's config by command: {}".format(command))
         respond = self.run_cmd(command)
         result = respond.split("=", 1)
@@ -67,8 +67,9 @@ class HeNB(SSHSession):
             return False
 
     # sed -i "/^\s*use_ipv6\s*=/c use_ipv6 = 0" /config/l3/femtoconfig.ini
-    def set_config(self, config_name, config_param, target_file_path):
-        set_command = 'sed -i "/^\s*{0}\s*=/c {0} = {1}" {2}'.format(config_name, config_param, target_file_path)
+    def set_config(self, config_name, config_param, target_file_path, split="="):
+        set_command = 'sed -i "/^\s*{0}\s*{3}/c {0} {3} {1}" {2}'.format(config_name, config_param, target_file_path,
+                                                                         split)
         self.run_cmd(set_command)
         actual_result = self.get_config(config_name, target_file_path)
         if actual_result == config_param:
@@ -112,6 +113,15 @@ class HeNB(SSHSession):
 
     def reboot(self):
         self.run_command_shell('reboot')
+
+    def update_gps(self, latitude, longitude):
+        gps_config_file = self.config.get("GPS").get("logcal_file")
+        curren_latitude = self.get_config(config_name="FAP.GPS.LockedLatitude;INT;", target_file_path=gps_config_file,
+                                          split=";;")
+        curren_longitude = self.get_config(config_name="FAP.GPS.LockedLongitude;INT;", target_file_path=gps_config_file,
+                                           split=";;")
+        if (latitude != 0) and (longitude != 0):
+            self.set_config("")
 
     @classmethod
     def parse_alarm_definition(cls, alarm_id):
