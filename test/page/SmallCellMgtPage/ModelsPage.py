@@ -16,6 +16,8 @@ class ModelsPage(BasePage):
         self.v_vendor_input_text = "manu"
         self.v_oui_input_text = "oui"
         self.v_product_class_input_text = "displays"
+        self.v_ok_btn = "confirm()"
+        self.v_cancel_btn = "$close()"
 
     def is_model_existed(self, model_name, model_info: dict):
         is_exist = False
@@ -46,5 +48,14 @@ class ModelsPage(BasePage):
         result = True
         return result
 
+    def ok_btn(self):
+        ok_btn = self.button(self.v_ok_btn, is_click=False)
+        if self.is_button_enable(ok_btn):
+            self.click(ok_btn)
+
+    def cancel_btn(self):
+        cancel_btn = self.button(self.v_cancel_btn, is_click=False)
+        if self.is_button_enable(cancel_btn):
+            self.click(cancel_btn)
 
 

@@ -32,7 +32,8 @@ class BasePage(Browser):
 
         # general element in all page, start with _e_
         self._e_logout_btn = (By.XPATH, "//li[@ng-click='signOut()']")
-        self._e_ok_btn = (By.XPATH, "//button[text()='OK']")
+        self._e_ok_btn = (By.XPATH, "//button[@ng-click='ok()']")
+        self._e_cancel_bun = (By.XPATH, "//button[@ng-click='cancel()']")
         self._e_file_select_input = (By.XPATH, "//input[@ng-file-select='onFileSelect($files)']")
         # self._e_column_name = (By.XPATH, "//div[@col-index='renderIndex']")
 
@@ -107,7 +108,7 @@ class BasePage(Browser):
         is_disabled = self.get_attr(web_ele, "disabled")
         # the value return by get_attr is true or false
         if is_disabled == 'true':
-            logger.error("This OK button can NOT be clicked")
+            logger.error("This button can NOT be clicked")
             return False
         # wrong maybe
         else:
@@ -118,18 +119,11 @@ class BasePage(Browser):
         ok_btn = self._e_ok_btn
         if self.is_button_enable(ok_btn):
             self.click(ok_btn)
-            logger.debug("click the ok button")
-        else:
-            logger.warning("the ok button is NOT clickable")
 
     def cancel_btn(self):
-        cancel_btn = self.button(self._v_cancel_btn, is_click=False)
+        cancel_btn = self._e_cancel_bun
         if self.is_button_enable(cancel_btn):
             self.click(cancel_btn)
-            logger.debug("click the cancel button")
-            time.sleep(0.25)
-        else:
-            logger.warning("the cancel button is NOT clickable")
 
     def checkbox(self, model_name, value=None, to_select=True):
         """
@@ -203,8 +197,8 @@ class BasePage(Browser):
         :return: list, the content of current page list
         """
         lists_content = collections.UserList()
-        lists_elemt = (By.XPATH, "//div[@ng-style='Viewport.rowStyle(rowRenderIndex)']")
-        lists = self.find_elements(*lists_elemt)
+        lists_element = (By.XPATH, "//div[@ng-style='Viewport.rowStyle(rowRenderIndex)']")
+        lists = self.find_elements(*lists_element)
         for row in lists:
             lists_content.append(row.text.split("\n"))
         return lists_content

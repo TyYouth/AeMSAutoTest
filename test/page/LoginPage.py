@@ -18,8 +18,10 @@ class LoginPage(BasePage):
     def act_login_aems(self, login_method='Local Database'):
         self.send_keys(self.e_username, 'admin')
         self.send_keys(self.e_pwd, "casa")
-        current_method = self.get_text(self.e_repository)
-        logger.debug("current login method is {}".format(current_method))
+        # current_method = self.get_text(self.e_repository)
+        # logger.debug("current login method is {}".format(current_method))
+        sleep(0.25)
         self.select_by_text(self.e_repository, login_method)
+        logger.debug("change login method to be {}".format(login_method))
         self.button(self.val_login_btn)
         sleep(0.5)
