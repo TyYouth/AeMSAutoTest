@@ -16,7 +16,8 @@ class Logger(object):
             self.backup_count = c.get('backup_count') if c.get('backup_count') else 7
             self.console_output_level = c.get('console_level') if c.get('console_level') else 'DEBUG'
             self.file_output_level = c.get('file_level') if c.get('file_level') else 'WARNING'
-            pattern = c.get('pattern') if c.get('pattern') else "%(asctime)s- %(funcName)s- %(levelname)s - %(message)s"
+            pattern = c.get('pattern') if c.get(
+                'pattern') else "%(asctime)s- %(funcName)s[line:%(lineno)d]- %(levelname)s - %(message)s"
             self.formatter = logging.Formatter(pattern)
 
     def get_logger(self):

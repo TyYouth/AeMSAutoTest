@@ -62,4 +62,4 @@ log:
   backup_count: 7
   console_level: DEBUG
   file_level: WARNING
-  pattern: "%(asctime)s- %(funcName)s- %(levelname)s - %(message)s"
+  pattern: "%(asctime)s- %(funcName)s[line:%(lineno)d]- %(levelname)s - %(message)s"
