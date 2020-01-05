@@ -1,11 +1,12 @@
+import collections
 import os
-import datetime
 import time
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException
 from utils.common.log import logger
-from utils.config import DRIVER_PATH
+from utils.Config import DRIVER_PATH
 from test.common.browser import Browser
+
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
 BY_METHOD = [By.ID, By.NAME, By.CLASS_NAME, By.CSS_SELECTOR, By.XPATH, By.TAG_NAME, By.PARTIAL_LINK_TEXT,
@@ -18,22 +19,20 @@ class IncorrectPathWebElement(Exception):
 
 class BasePage(Browser):
 
-    def __init__(self, driver=None):
+    def __init__(self, driver=None, browser_type='chrome'):
         self.column_names = None
         # if driver has been init, not need to init again
         if driver:
             self.driver = driver
         else:
-            super(BasePage, self).__init__(browser_type='chrome')
-            # self.browser = Browser(browser_type='chrome')
-            # self.driver = self.browser.driver_init()
+            super(BasePage, self).__init__(browser_type)
         # 遍历对象属性(和方法函数)
         # Traverse object properties (and method functions)
         self._dict = object.__getattribute__(self, '__dict__')
 
         # general element in all page, start with _e_
         self._e_logout_btn = (By.XPATH, "//li[@ng-click='signOut()']")
-        self._e_ok_btn = (By.XPATH, "//button[@ng-click='ok()']")
+        self._e_ok_btn = (By.XPATH, "//button[text()='OK']")
         self._e_file_select_input = (By.XPATH, "//input[@ng-file-select='onFileSelect($files)']")
         # self._e_column_name = (By.XPATH, "//div[@col-index='renderIndex']")
 
@@ -41,7 +40,6 @@ class BasePage(Browser):
         self._v_ok_btn = "ok()"
         self._v_cancel_btn = "cancel()"
         # self._v_add_btn = "add()"
-
 
     def __getattribute__(self, attr):
         """
@@ -116,16 +114,13 @@ class BasePage(Browser):
             logger.debug("This button may be clicked")
             return True
 
-    def is_ok_btn_enable(self):
-        return self.is_button_enable(self._e_ok_btn)
-
     def ok_btn(self):
-        ok_btn = self.button(self._v_ok_btn, is_click=False)
+        ok_btn = self._e_ok_btn
         if self.is_button_enable(ok_btn):
             self.click(ok_btn)
             logger.debug("click the ok button")
         else:
-            logger.warning("the ok button is not clickable")
+            logger.warning("the ok button is NOT clickable")
 
     def cancel_btn(self):
         cancel_btn = self.button(self._v_cancel_btn, is_click=False)
@@ -135,6 +130,23 @@ class BasePage(Browser):
             time.sleep(0.25)
         else:
             logger.warning("the cancel button is NOT clickable")
+
+    def checkbox(self, model_name, value=None, to_select=True):
+        """
+        :param model_name: str, value of ng-model
+        :param value: str, value of value
+        :param to_select: bool, flag of checkbox or radio was selected or not
+                            True means element was been selected, False means not yet
+        :return: None
+        """
+        if value is not None:
+            checkbox_ele = self.find_xpath(value="//input[@ng-model='{0}' and @value='{1}']".format(model_name, value))
+        else:
+            checkbox_ele = self.find_xpath(value="//input[@ng-model='{0}']".format(model_name))
+        if checkbox_ele.is_selected() != to_select:
+            checkbox_ele.click()
+            logger.debug("click to select the check box or radio")
+        time.sleep(0.25)
 
     def prompt_msg(self, show_value=None):
         """
@@ -186,6 +198,17 @@ class BasePage(Browser):
         logger.debug("the column names of current web is {}".format(column_names))
         return column_names
 
+    def get_whole_list(self):
+        """
+        :return: list, the content of current page list
+        """
+        lists_content = collections.UserList()
+        lists_elemt = (By.XPATH, "//div[@ng-style='Viewport.rowStyle(rowRenderIndex)']")
+        lists = self.find_elements(*lists_elemt)
+        for row in lists:
+            lists_content.append(row.text.split("\n"))
+        return lists_content
+
     def get_row_by_text(self, label_name, text_val, attr='ng-repeat'):
         """
         the most row value of AeMS web is like:
@@ -233,11 +256,13 @@ class BasePage(Browser):
     def get_val_by_unique_text(self, unique_text, attr, label_name='div'):
         """
         Get attr based on unique value (best)
-        such as ne_online_status = get_val_by_unique_text(identity, "Node Backhaul Status")
         :param unique_text: str, unique text on the web
         :param attr: str, attr name
         :param label_name:
         :return: attr value
+
+        Example:
+        such as ne_online_status = get_val_by_unique_text(identity, "Node Backhaul Status")
         """
         attribute_names = self.get_column_names()
         index = self.get_index_of_tuple(attribute_names, attr)

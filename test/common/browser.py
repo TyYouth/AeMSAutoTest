@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, NoSuchFrameException, JavascriptException, \
     ScreenshotException
-from utils.config import DRIVER_PATH, REPORT_PATH
+from utils.Config import DRIVER_PATH, REPORT_PATH
 
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
@@ -21,7 +21,7 @@ class UnSupportBrowserTypeError(Exception):
 
 
 class Browser(object):
-    def __init__(self, browser_type='chrome'):
+    def __init__(self, browser_type):
         super(Browser, self).__init__()
         self.driver = None
         self._type = browser_type
@@ -31,14 +31,14 @@ class Browser(object):
             raise UnSupportBrowserTypeError("UnSupport browser type, support %s only" % ''.join(TYPES.keys()))
         self.accept_next_alert = None
 
-    def driver_init(self, maximize_windows=True, implicitly_wait=10):
+    def browser_init(self, maximize_windows=True, implicitly_wait=10):
         logger.info('driver init start, opened browser')
         self.driver = self.browser(executable_path=EXECUTABLE_PATH[self._type])
         if maximize_windows:
             self.driver.maximize_window()
         self.driver.implicitly_wait(implicitly_wait)
         self.accept_next_alert = True
-        return self.driver
+        return self
 
     # get driver
     def get_driver(self):

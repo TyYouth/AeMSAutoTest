@@ -3,8 +3,8 @@ AeMS:
   version: femto
   northbound_ip_address: 172.0.16.42
   southbound_ip_address: 172.0.17.42
-  mgmt_ip_address:
-  backup_ip_address:
+  mgmt_ip_address: 172.0.16.25
+  backup_ip_address: 172.0.16.25
 
   # default user: admin to login
   web_user: admin
@@ -24,16 +24,14 @@ AeMS:
     profile_version: 4.5
 
 HeNB:
-  host: 172.0.13.5
+  host: 172.0.13.20
   port: 22
-  # default pwd Ca$a@pex!234
   user_name: root
-#  password: Ca$a@pex!234
-  password: casa
+  password: casa # default pwd Ca$a@pex!234
   oam_file: /usr/sbin/oam
   TR069_file: /config/tr069/tr069_agent.ini
   GPS:
-    logcal_file: /config/tr069/parameters.csv
+    target_file: /config/tr069/parameters.csv
     ScanStatus: Success # Success or Indeterminate for bad gps
     # Boston
     latitude_1: 42691842
@@ -43,12 +41,10 @@ HeNB:
     longitude_2: -71203095
 # HeNB Config
 #file name
-femtoconfig.ini:
-  is_use_ipv6: 0
-  ipsec: 0
-parameter.csv:
-  Long: 123456
-  Lang: 987654
+#femtoconfig.ini:
+#  is_use_ipv6: 0
+#  ipsec: 0
+
 
 # mail setting:
 # get help from mail server you use

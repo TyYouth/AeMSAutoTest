@@ -4,7 +4,7 @@ import paramiko
 from scp import SCPClient
 from time import sleep
 from utils.common.log import logger
-from utils.time_handle import DateTime
+from utils.TimeHandler import DateTime
 
 
 def to_str(bytes_or_str):
@@ -15,15 +15,15 @@ def to_str(bytes_or_str):
 
 
 class SSHSession(object):
-    __transport = None
-    scp_client = None
-    sftp_client = None
 
     def __init__(self, host, user_name, pwd, port=22):
         self.host = host
         self.port = port
         self.user_name = user_name
         self.pwd = pwd
+        self.__transport = None
+        self.scp_client = None
+        self.sftp_client = None
 
     def connect(self):
         try:
@@ -31,9 +31,11 @@ class SSHSession(object):
             transport = paramiko.Transport(host_port)
             transport.connect(username=self.user_name, password=self.pwd)
             self.__transport = transport
-            # the henb is not support SFTP and init transport as SCP"
             self.scp_client = SCPClient(self.__transport)
             self.sftp_client = paramiko.SFTPClient.from_transport(self.__transport)
+        except paramiko.ssh_exception.SSHException:
+            # the henb is not support SFTP and init transport as SCP"
+            logger.error("HeNB does NOT support sftp")
         except Exception as e:
             logger.exception(e)
 
@@ -71,7 +73,7 @@ class SSHSession(object):
             logger.error(error.strip())
             return error.strip()
         else:
-            logger.debug("The result of command '{}' is: {}".format(command, output.strip()))
+            logger.debug("The result of command '{}' is:\n {}".format(command, output.strip()))
             return output.strip()
 
     def run_command_shell(self, *commands):
@@ -87,9 +89,9 @@ class SSHSession(object):
         channel.close()
         logger.debug(receive.decode('UTF-8'))
 
-    def get_date_time(self, is_transfer=None):
+    def get_date_time(self, is_transfer=True):
         date_time = self.run_cmd("date")
-        if is_transfer is not None:
+        if is_transfer:
             date_time = DateTime.to_datetime_by(date_time, time_format="%a %b %d %H:%M:%S %Z %Y")
         return date_time
 

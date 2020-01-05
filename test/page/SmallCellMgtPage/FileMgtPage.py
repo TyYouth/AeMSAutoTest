@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 from test.page.basepage import BasePage
-from utils.config import DATA_PATH
+from utils.Config import DATA_PATH
 from utils.common.log import logger
 
 

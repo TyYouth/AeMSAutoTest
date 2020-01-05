@@ -10,7 +10,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from utils.common.log import logger
-from utils.config import Config, REPORT_FILE
+from utils.Config import Config, REPORT_FILE
 
 
 class Mail(object):

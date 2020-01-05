@@ -3,13 +3,13 @@
 import unittest
 from time import sleep
 from utils.common.log import logger
-from utils.config import Config
+from utils.Config import Config
 from test.page.LoginPage import LoginPage
 
 
 class AeMSCase(unittest.TestCase):
     set_up = LoginPage()
-    set_up.driver_init()
+    set_up.browser_init()
     driver = set_up.get_driver()
 
     @classmethod

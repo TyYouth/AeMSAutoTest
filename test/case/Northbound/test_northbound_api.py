@@ -3,7 +3,7 @@
 
 import requests
 
-from utils.config import Config
+from utils.Config import Config
 from test.page.basepage import BasePage
 from test.common.AeMSCase import AeMSCase
 

@@ -2,7 +2,7 @@
 # coding=utf-8
 from time import sleep
 from test.common.AeMSCase import AeMSCase
-from test.page.SmallCellManagemetPage.FileManagementPage import FileManagementPage
+from test.page.SmallCellMgtPage.FileMgtPage import FileManagementPage
 
 driver = AeMSCase().driver
 file_management_page = FileManagementPage(driver=driver)

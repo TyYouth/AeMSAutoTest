@@ -33,9 +33,5 @@ class TestConfigs(AeMSCase):
             sleep(0.25)
             self.assertEqual(excepted_logout_time_prompt_msg, prompt_msg)
 
-    def test_00100_switch_log_setting(self):
-        config_page.click(config_page.find_xpath_by_text("button", "Log setting"))
-        sleep(0.5)
-
     def tearDown(self):
         AeMSCase.tearDown(self)

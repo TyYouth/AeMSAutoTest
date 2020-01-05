@@ -38,11 +38,11 @@ class DateTime(object):
         return datetime.timedelta(days=days_delta, hours=hours_delta, minutes=minutes_delta)
 
     @staticmethod
-    def except_time(days_delta=0, hours_delta=0, minutes_delta=0):
+    def expected_time(days_delta=0, hours_delta=0, minutes_delta=0):
         return DateTime._current_time + DateTime.delta_time(days_delta, hours_delta, minutes_delta)
 
 
 if __name__ == "__main__":
     test = DateTime()
-    print(test.except_time())
+    print(test.expected_time())
     print(test.get_current_time())

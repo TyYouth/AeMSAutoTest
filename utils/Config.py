@@ -73,7 +73,7 @@ class JsonConfig(object):
         try:
             if date_name in list(self.config.keys()):
                 return self.config.get(date_name)
-        except:
+        except Exception:
             print('not such henb file or config')
 
 

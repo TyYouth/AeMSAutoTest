@@ -1,5 +1,5 @@
 import unittest
-from utils.config import CASE_PATH, REPORT_FILE
+from utils.Config import CASE_PATH, REPORT_FILE
 from utils.common.HTMLTestRunner import HTMLTestRunner
 from utils.common.mail import Mail
 
