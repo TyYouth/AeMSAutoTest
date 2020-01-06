@@ -106,6 +106,8 @@ class Meta(type):
         """
         funcs, cases = Tool.filter_test_case(func_names)
 
+        print(funcs)
+        print("len: " + str(len(cases)))
         # update cases name when case numbers bigger than 1
         if len(cases) > 1:
             for raw_case_name, raw_case in cases:
@@ -114,9 +116,10 @@ class Meta(type):
                 setattr(raw_case, CASE_INFO_FLAG, case_info)
 
                 # 过滤不执行的用例
-                if getattr(raw_case, CASE_TAG_FLAG) & set({Tag.LOW}):
-                    print(raw_case, getattr(raw_case, CASE_TAG_FLAG))
-                    continue
+                # if getattr(raw_case, CASE_TAG_FLAG) & {Tag.MEDIUM}:
+                #     print(getattr(raw_case, CASE_TAG_FLAG) & {Tag.MEDIUM})
+                #     print(raw_case)
+                #     continue
 
                 # update case name
                 if not hasattr(raw_case, 'test_'):

@@ -56,10 +56,10 @@ mail:
   mail_pwd: onctyyqycumtcbbb
 
 # log setting
-# level: CRITICAL> ERROR> WARN> INFO> DEBUG> NOTSET
+# level: CRITICAL> ERROR> WARN> INFO> DEBUG
 log:
   file_name: test.log
   backup_count: 7
   console_level: DEBUG
   file_level: WARNING
-  pattern: "%(asctime)s- %(funcName)s[line:%(lineno)d]- %(levelname)s - %(message)s"
+  pattern: "%(asctime)s-%(name)s-%(levelname)s-%(message)s"
