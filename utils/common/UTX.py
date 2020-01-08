@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-import unittest
-
 import functools
+import unittest
 from time import sleep
 from enum import Enum, unique
 from utils.common.log import logger
+from utils.Config import Config
 
 CASE_ID_FLAG = "__case_id__"
 CASE_INFO_FLAG = "__case_info__"
@@ -29,19 +29,19 @@ def _handler(func):
 
 @unique
 class Tag(Enum):
-    SMOKE = 1  # Don't Delete or change
-    ALL = 1000
+    SMOKE = 1000  # Don't Delete or change
+    ALL = 1  # Don't Delete or change
 
     # level:
-    HIGH = 10
-    MEDIUM = 11
-    LOW = 12
+    HIGH = 200
+    MEDIUM = 20
+    LOW = 2
 
 
 def tag(*tag_type):
     """
-    support Multiple tags
-    @tag(Tag.SMOKE, Tag.ALL)
+    un-support Multiple tags now
+    @tag(Tag.SMOKE)
     def test_func(self):
         pass
     :param tag_type: define at class Tag
@@ -97,6 +97,14 @@ class Tool(object):
         return result
 
 
+def traversal_tag(tags_list):
+    for a_tag in tags_list:
+        return a_tag.value
+
+
+run_case = Tag[Config().get("AeMS").get("run_case")]
+
+
 class Meta(type):
     def __new__(mcs, class_name, bases, func_names):
         """
@@ -105,25 +113,21 @@ class Meta(type):
         :param func_names: 方法名
         """
         funcs, cases = Tool.filter_test_case(func_names)
-
         for raw_case_name, raw_case in cases:
             # 注入用例信息
             case_info = "{}.{}".format(raw_case.__module__, raw_case.__name__)
             setattr(raw_case, CASE_INFO_FLAG, case_info)
 
+            # 如果没有tag, 则默认注入Tag.All
             if not hasattr(raw_case, CASE_TAG_FLAG):
                 tags = {Tag.ALL}
                 setattr(raw_case, CASE_TAG_FLAG, tags)
 
-            # 过滤不执行的用例
+            # 只执行value 更大的
             tags_list = list(getattr(raw_case, CASE_TAG_FLAG))
-            for a_tag in tags_list:
-                if a_tag.value > Tag.MEDIUM.value:
-                    logger.debug(a_tag)
-                    logger.debug(raw_case)
-                    continue
+            if traversal_tag(tags_list) < run_case.value:
+                continue
 
-            # update case name
             funcs.update(Tool.recreate_case(raw_case_name, raw_case))
             func_names = funcs
         return super(Meta, mcs).__new__(mcs, class_name, bases, func_names)

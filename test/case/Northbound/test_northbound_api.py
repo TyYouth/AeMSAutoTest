@@ -4,7 +4,7 @@
 import requests
 
 from utils.Config import Config
-from test.page.basepage import BasePage
+from test.page.BasePage import BasePage
 from test.common.AeMSCase import AeMSCase
 
 host = Config().get("AeMS").get("northbound_ip_address")

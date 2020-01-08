@@ -4,7 +4,7 @@
 from time import sleep
 from utils.common.log import logger
 from test.common.AeMSCase import AeMSCase
-from test.page.basepage import BasePage
+from test.page.BasePage import BasePage
 from test.page.AeMSSettingPage.ConfigrurationPage import ConfigurationPage
 
 driver = AeMSCase().driver

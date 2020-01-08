@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from time import sleep
-from test.page.basepage import BasePage
+from test.page.BasePage import BasePage
 from selenium.webdriver.common.by import By
 from utils.common.log import logger
 

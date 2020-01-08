@@ -1,4 +1,6 @@
 AeMS:
+  # support tag: SMOKE > HIGH > MEDIUM > LOW > ALL
+  run_case: "ALL"
   # version branch support: pico, femto, verizon
   version: femto
   northbound_ip_address: 172.0.16.42

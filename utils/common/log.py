@@ -2,7 +2,7 @@ import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from utils.Config import LOG_PATH, Config
-from colorama import Fore, Style
+
 
 
 class Logger(object):

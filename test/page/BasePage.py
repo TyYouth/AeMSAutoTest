@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException
 from utils.common.log import logger
 from utils.Config import DRIVER_PATH
-from test.common.browser import Browser
+from test.common.Browser import Browser
 
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
