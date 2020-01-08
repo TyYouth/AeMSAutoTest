@@ -18,11 +18,13 @@ class Logger(object):
             self.console_output_level = c.get('console_level') if c.get('console_level') else 'DEBUG'
             self.file_output_level = c.get('file_level') if c.get('file_level') else 'WARNING'
             pattern = c.get('pattern') if c.get(
-                'pattern') else "%(asctime)s-%(name)s-%(levelname)s-%(message)s"
+                'pattern') else "%(asctime)s-%(funcName)s-%(levelname)s-%(message)s"
             self.formatter = logging.Formatter(pattern, datefmt='%Y-%m-%d %H:%M:%S')
 
         # add handlers in logger, if exist, return directly
         # to avoid record the same log
+
+    def get_logger(self):
         if not self.logger.handlers:
             console_handler = logging.StreamHandler()
             console_handler.setFormatter(self.formatter)
@@ -40,24 +42,7 @@ class Logger(object):
             file_handler.setFormatter(self.formatter)
             file_handler.setLevel(self.file_output_level)
             self.logger.addHandler(file_handler)
-
-    def debug(self, msg):
-        self.logger.debug(Fore.GREEN + str(msg) + Style.RESET_ALL)
-
-    def info(self, msg):
-        self.logger.info(Fore.GREEN + str(msg) + Style.RESET_ALL)
-
-    def warning(self, msg):
-        self.logger.warning(Fore.LIGHTRED_EX + str(msg) + Style.RESET_ALL)
-
-    def error(self, msg):
-        self.logger.error(Fore.RED + str(msg) + Style.RESET_ALL)
-
-    def exception(self, msg):
-        self.logger.exception(Fore.RED + str(msg) + Style.RESET_ALL)
-
-    def critical(self, msg):
-        self.logger.critical(Fore.RED + str(msg) + Style.RESET_ALL)
+        return self.logger
 
 
-logger = Logger()
+logger = Logger().get_logger()

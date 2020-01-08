@@ -50,7 +50,7 @@ def tag(*tag_type):
 
     def wrap(func):
         if not hasattr(func, CASE_TAG_FLAG):
-            tags = {Tag.ALL}
+            tags = set()
             tags.update(tag_type)
             setattr(func, CASE_TAG_FLAG, tags)
         else:
@@ -106,26 +106,26 @@ class Meta(type):
         """
         funcs, cases = Tool.filter_test_case(func_names)
 
-        print(funcs)
-        print("len: " + str(len(cases)))
-        # update cases name when case numbers bigger than 1
-        if len(cases) > 1:
-            for raw_case_name, raw_case in cases:
-                # 注入用例信息
-                case_info = "{}.{}".format(raw_case.__module__, raw_case.__name__)
-                setattr(raw_case, CASE_INFO_FLAG, case_info)
+        for raw_case_name, raw_case in cases:
+            # 注入用例信息
+            case_info = "{}.{}".format(raw_case.__module__, raw_case.__name__)
+            setattr(raw_case, CASE_INFO_FLAG, case_info)
 
-                # 过滤不执行的用例
-                # if getattr(raw_case, CASE_TAG_FLAG) & {Tag.MEDIUM}:
-                #     print(getattr(raw_case, CASE_TAG_FLAG) & {Tag.MEDIUM})
-                #     print(raw_case)
-                #     continue
+            if not hasattr(raw_case, CASE_TAG_FLAG):
+                tags = {Tag.ALL}
+                setattr(raw_case, CASE_TAG_FLAG, tags)
 
-                # update case name
-                if not hasattr(raw_case, 'test_'):
-                    setattr(raw_case, 'test_', 'test_')
-                funcs.update(Tool.recreate_case(raw_case_name, raw_case))
-                func_names = funcs
+            # 过滤不执行的用例
+            tags_list = list(getattr(raw_case, CASE_TAG_FLAG))
+            for a_tag in tags_list:
+                if a_tag.value > Tag.MEDIUM.value:
+                    logger.debug(a_tag)
+                    logger.debug(raw_case)
+                    continue
+
+            # update case name
+            funcs.update(Tool.recreate_case(raw_case_name, raw_case))
+            func_names = funcs
         return super(Meta, mcs).__new__(mcs, class_name, bases, func_names)
 
 
