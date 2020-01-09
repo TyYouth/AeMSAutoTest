@@ -2,7 +2,7 @@ import unittest
 from utils.Config import CASE_PATH, REPORT_FILE
 from utils.common.HTMLTestRunner import HTMLTestRunner
 from utils.common.mail import Mail
-# from utils.common.UTX import *
+from utils.common.UTX import *
 
 
 def main():

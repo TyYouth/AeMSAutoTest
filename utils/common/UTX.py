@@ -40,8 +40,8 @@ class Tag(Enum):
 
 def tag(*tag_type):
     """
-    un-support Multiple tags now
-    @tag(Tag.SMOKE)
+    support Multiple tags
+    @tag(Tag.SMOKE, Tag.MEDIUM)
     def test_func(self):
         pass
     :param tag_type: define at class Tag
@@ -97,12 +97,16 @@ class Tool(object):
         return result
 
 
-def traversal_tag(tags_list):
+run_tag = Tag[Config().get("AeMS").get("run_case")]
+
+
+def is_case_run(tags_list):
+    is_run = False
     for a_tag in tags_list:
-        return a_tag.value
-
-
-run_case = Tag[Config().get("AeMS").get("run_case")]
+        if a_tag.value > run_tag.value:
+            is_run = True  # 只执行value 更大的
+            break
+    return is_run
 
 
 class Meta(type):
@@ -123,13 +127,12 @@ class Meta(type):
                 tags = {Tag.ALL}
                 setattr(raw_case, CASE_TAG_FLAG, tags)
 
-            # 只执行value 更大的
             tags_list = list(getattr(raw_case, CASE_TAG_FLAG))
-            if traversal_tag(tags_list) < run_case.value:
+            if not is_case_run(tags_list):
                 continue
 
-            funcs.update(Tool.recreate_case(raw_case_name, raw_case))
-            func_names = funcs
+            # funcs.update(Tool.recreate_case(raw_case_name, raw_case))
+            # func_names = funcs
         return super(Meta, mcs).__new__(mcs, class_name, bases, func_names)
 
 

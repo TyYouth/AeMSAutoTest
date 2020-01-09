@@ -1,5 +1,5 @@
 AeMS:
-  # support tag: SMOKE > HIGH > MEDIUM > LOW > ALL
+  # support tag, level: SMOKE > HIGH > MEDIUM > LOW > ALL
   run_case: "ALL"
   # version branch support: pico, femto, verizon
   version: femto
@@ -41,11 +41,6 @@ HeNB:
     # Kansas
     latitude_2: 42691842
     longitude_2: -71203095
-# HeNB Config
-#file name
-#femtoconfig.ini:
-#  is_use_ipv6: 0
-#  ipsec: 0
 
 
 # mail setting:

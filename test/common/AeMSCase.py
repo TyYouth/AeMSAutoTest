@@ -5,10 +5,10 @@ from time import sleep
 from utils.common.log import logger
 from utils.Config import Config
 from test.page.LoginPage import LoginPage
-# from utils.common.UTX import TestCase
+from utils.common.UTX import TestCase
 
 
-class AeMSCase(unittest.TestCase):
+class AeMSCase(TestCase):
     set_up = LoginPage()
     set_up.browser_init()
     driver = set_up.get_driver()
@@ -33,7 +33,7 @@ class AeMSCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.set_up.quit()
+        cls.set_up.quit()
         logger.info("complete execute case of " + cls.__module__)
 
 
