@@ -1,9 +1,24 @@
 {
   "femtoconfig.ini": {
+    "path": "/config/l3/femtoconfig.ini",
     "is_use_ipv6": 0,
-    "ipsec": 0
+    "ipsec": 0,
+    "gps_enabled": 0,
+    "gps_scan_on_boot": 0
+  },
+  "parameters.csv": {
+    "path": "/config/tr069/parameters.csv",
+    "GPS_Boston": {
+      "latitude": "42691842",
+      "longitude": "-71203095"
+    },
+    "GPS_Kansas": {
+      "latitude": "39185415",
+      "longitude": "-94628341"
+    }
   },
   "ipsec.conf": {
-    "leftid": "ssss"
+    "path": ".vendor/ipsec.conf",
+    "leftid": null
   }
 }

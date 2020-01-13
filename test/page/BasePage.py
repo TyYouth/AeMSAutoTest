@@ -89,17 +89,17 @@ class BasePage(Browser):
         else:
             return select_ele
 
-    def button(self, click_value, is_click=True):
+    def button(self, click_value, to_click=True):
         """
         # Most of the BUTTONS include similar content <button class="class value" ng-click="login()">Login</button>
         but other with `li` tab, like logout button
         find button by value and click
         :param click_value:  value of ng-click
-        :param is_click: bool, click or not
+        :param to_click: bool, click or not
         :return: None
         """
         button_element = self.find_xpath("button", "ng-click", click_value)
-        if is_click:
+        if to_click:
             self.click(button_element)
         else:
             return button_element

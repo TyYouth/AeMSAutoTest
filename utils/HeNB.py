@@ -7,6 +7,7 @@ from utils.common.ssh import SSHSession
 from utils.Config import Config
 from utils.Config import COMMON_FILE
 from utils.CSVHandler import CsvReader
+from utils.JsonFileHandler import JsonConfig
 
 ALARM_FILE = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
 VALUE_CHANGE = os.path.join(COMMON_FILE, 'common', 'TR069Packet', '4_value_change.xml')
@@ -52,10 +53,17 @@ class HeNB(SSHSession):
         if set_respond == 0 and get_respond:
             return True
 
-    # sed, linux command base on Regular
-    # \s to match one space, \s* is for match unknown len space, /^ is for match start with
-    # sed -n "/^\s*use_ipv6\s*=/p" /config/l3/femtoconfig.ini
     def get_config(self, config_name, target_file_path, split_by="="):
+        """
+        sed, linux command base on Regular
+        \s to match one space, \s* is for match unknown len space, /^ is for match start with
+        sed -n "/^\s*use_ipv6\s*=/p" /config/l3/femtoconfig.ini
+
+        :param config_name:
+        :param target_file_path:
+        :param split_by:
+        :return:
+        """
         command = r'sed -n "/^\s*{0}\s*{2}/p" {1}'.format(config_name, target_file_path, split_by)
         logger.debug("try to get HeNB's config by command: {}".format(command))
         respond = self.run_cmd(command)
@@ -68,9 +76,17 @@ class HeNB(SSHSession):
             logger.error("Failed to get {} in {}, the respond is {}".format(config_name, target_file_path, respond))
             return False
 
-    # sed -i "/^\s*use_ipv6\s*=/c \use_ipv6=0" /config/l3/femtoconfig.ini
-    # replace content startswith \, like \use_ipv6
     def set_config(self, config_name: str, config_value: str, target_file_path: str, split_by="="):
+        """
+        sed -i "/^\s*use_ipv6\s*=/c \use_ipv6=0" /config/l3/femtoconfig.ini
+        replace content startswith \, like \use_ipv6
+
+        :param config_name:
+        :param config_value: value you want to set
+        :param target_file_path: path of config
+        :param split_by:
+        :return: the result of config set
+        """
         set_command = r'sed -i "/^\s*{0}\s*{3}/c \{0}{3}{1}" {2}'.format(config_name, config_value, target_file_path,
                                                                          split_by)
         self.run_cmd(set_command)
@@ -83,22 +99,21 @@ class HeNB(SSHSession):
             return False
 
     def get_serial_number(self):
-        # is file /root/.vendor/serialnumber' exist
-        # is_file_exist = False
         respond = self.run_cmd('ls /root/.vendor/serialnumber')
         if "No such file or directory" in respond:
-            logger.warn("file /root/.vendor/serialnumber does NOT exist")
-            self.device_info['SerialNumber'] = self.get_config('DeviceInfo.SerialNumber', self.tr069_file)[1]
+            logger.warning("file /root/.vendor/serialnumber does NOT exist")
+            serial_number = self.get_config('DeviceInfo.SerialNumber', self.tr069_file)[1]
         else:
             cat_command = 'cat /root/.vendor/serialnumber'
-            self.device_info['SerialNumber'] = self.run_cmd(cat_command)
+            serial_number = self.run_cmd(cat_command)
+        return serial_number
 
     def get_device_info(self):
         # vendor is equals to Manufacturer
         self.device_info['Vendor'] = self.get_config('DeviceInfo.Manufacturer', self.tr069_file)[1]
         self.device_info['OUI'] = self.get_config('DeviceInfo.ManufacturerOUI', self.tr069_file)[1]
         self.device_info['ProductClass'] = self.get_config('DeviceInfo.ProductClass', self.tr069_file)[1]
-        self.get_serial_number()
+        self.device_info['SerialNumber'] = self.get_serial_number()
         return self.device_info
 
     def update_tr069_url(self, southbound_ip_address: str = None):
@@ -127,22 +142,23 @@ class HeNB(SSHSession):
         self.run_command_shell('reboot')
 
     def update_gps(self, latitude: str, longitude: str):
-        gps_config_file = self.config.get("GPS").get("target_file")
+        gps_config_file = JsonConfig().get("parameters.csv").get("path")
         latitude_name, current_latitude = self.get_config(config_name="FAP.GPS.LockedLatitude;INT;.*",
                                                           target_file_path=gps_config_file,
                                                           split_by=";;")
         longitude_name, current_longitude = self.get_config(config_name="FAP.GPS.LockedLongitude;INT;.*",
                                                             target_file_path=gps_config_file,
                                                             split_by=";;")
-        self.set_config(config_name=latitude_name.replace("OAM", "DM"), config_value=latitude,
+        self.set_config(config_name=latitude_name.replace("OAM", "DM"), config_value=str(latitude),
                         target_file_path=gps_config_file,
                         split_by=';;')
-        self.set_config(config_name=longitude_name.replace("OAM", "DM"), config_value=longitude,
+        self.set_config(config_name=longitude_name.replace("OAM", "DM"), config_value=str(longitude),
                         target_file_path=gps_config_file,
                         split_by=';;')
         current_scan_status = self.get_config(config_name="FAP.GPS.ScanStatus;STRING;.*",
                                               target_file_path=gps_config_file,
                                               split_by=";;")[0]
+
         if (latitude != '0') and (longitude != '0'):
             self.set_config(config_name=current_scan_status.replace("OAM", "DM"), config_value="Success",
                             target_file_path=gps_config_file, split_by=";;")
@@ -169,7 +185,7 @@ if __name__ == "__main__":
     # henb.get_parameter_by_oam("SIB1.SIB1.TAC")
     # henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
     henb.get_parameter_by_oam("SIB1.SIB1.TAC")
-    #
+
     # config = henb.get_config('ManagementServer.Manufacturer', '/config/tr069/tr069_agent.ini')
 
     # henb.get_device_info()

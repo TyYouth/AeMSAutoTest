@@ -3,6 +3,7 @@
 from time import sleep
 from test.common.AeMSCase import AeMSCase
 from test.page.SmallCellMgtPage.FileMgtPage import FileManagementPage
+from utils.common.UTX import Tag, tag
 
 driver = AeMSCase().driver
 file_management_page = FileManagementPage(driver=driver)
@@ -16,6 +17,7 @@ class TestFileManagement(AeMSCase):
         if not AeMSCase.column_names:
             AeMSCase.column_names = file_management_page.get_column_names()
 
+    @tag(Tag.HIGH)
     def test_0001_upload(self):
         files = file_management_page.get_upload_files(self.version)
         # to upload all profile which format is .csv (end with csv)

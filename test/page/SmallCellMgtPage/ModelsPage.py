@@ -28,13 +28,12 @@ class ModelsPage(BasePage):
 
         for i in range(len(whole_list)):
             if model_name in whole_list[i][0]:
-                print(model_name, whole_list[i][0])
                 is_exist = True
-                logger.debug("this model name was existed")
+                logger.debug("this model name {} was existed".format(model_name))
                 break
             if (vendor in whole_list[i]) and (oui in whole_list[i]) and (product_class in whole_list[i]):
                 is_exist = True
-                logger.warning("this model info corresponding model was existed")
+                logger.warning("this model info {} corresponding model was existed".format(whole_list[i]))
         sleep(0.25)
         return is_exist
 
@@ -49,12 +48,12 @@ class ModelsPage(BasePage):
         return result
 
     def ok_btn(self):
-        ok_btn = self.button(self.v_ok_btn, is_click=False)
+        ok_btn = self.button(self.v_ok_btn, to_click=False)
         if self.is_button_enable(ok_btn):
             self.click(ok_btn)
 
     def cancel_btn(self):
-        cancel_btn = self.button(self.v_cancel_btn, is_click=False)
+        cancel_btn = self.button(self.v_cancel_btn, to_click=False)
         if self.is_button_enable(cancel_btn):
             self.click(cancel_btn)
 
