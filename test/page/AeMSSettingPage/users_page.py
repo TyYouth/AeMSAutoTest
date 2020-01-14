@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from time import sleep
-from test.page.BasePage import BasePage
+from test.page.base_page import BasePage
 from selenium.webdriver.common.by import By
 
-from utils.TimeHandler import DateTime
+from utils.time_handler import DateTime
 
 
 class UsersPage(BasePage):

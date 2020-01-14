@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 
-from test.page.BasePage import BasePage
+from test.page.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 

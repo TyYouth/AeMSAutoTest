@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # coding=utf-8
 from time import sleep
-from test.common.AeMSCase import AeMSCase
-from test.page.SmallCellMgtPage.FileMgtPage import FileManagementPage
-from utils.common.UTX import Tag, tag
+from test.common.aems_case import AeMSCase
+from test.page.SmallCellMgtPage.file_mgt_page import FileManagementPage
+from utils.common.utx import Tag, tag
 
 driver = AeMSCase().driver
 file_management_page = FileManagementPage(driver=driver)

@@ -2,173 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e8578bf-1f28-4073-a1ad-6f75b85e6774" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Accessibility_A01B18000324.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Accessibility_A01B18000324.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Availability_A01B18000324.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Availability_A01B18000324.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Integrity_A01B18000324.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Integrity_A01B18000324.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Mobility_A01B18000324.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_Mobility_A01B18000324.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_SystemUtilization_A01B18000324.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/PerformanceCounterFiles/A20191026.0400+0000-0500+0000_SystemUtilization_A01B18000324.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/TR069Packet/4_value_change.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/common/TR069Packet/4_value_change.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Anaheim_Burbank_Phoenix_MME_Pool_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Anaheim_Burbank_Phoenix_MME_Pool_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Boston_Mobility_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Boston_Mobility_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Boston_SON_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Boston_SON_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/CSG_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/CSG_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_Multiple_ProvisionFile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_Multiple_ProvisionFile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_Multiple_ProvisionFiles-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_Multiple_ProvisionFiles-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_4.5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_4.5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_1-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_1-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_2-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_2-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_3-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_3-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Casa_Pico_ProvisionFile_Per_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Casa_Pico_ProvisionFile_Per_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/GPS_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/GPS_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/GTP_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/GTP_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/MobilityCDMA2000_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/MobilityCDMA2000_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/NeighbourListCDMA2000_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/NeighbourListCDMA2000_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/NeighbourList_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/NeighbourList_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/NeighbourList_SR4.5_full.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/NeighbourList_SR4.5_full.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Network_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Network_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/PerfMgmt_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/PerfMgmt_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/QoS_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/QoS_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/REM_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/REM_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/RadioAdvanced_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/RadioAdvanced_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Radio_B40_38941_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Radio_B40_38941_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Radio_B41_41176_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Radio_B41_41176_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/SCTP_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/SCTP_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/SecurityManagement_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/SecurityManagement_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/Self-HealingProfile_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/Self-HealingProfile_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/TR069_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/TR069_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.5_profile/TimeSync_GNSS_SR4.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.5_profile/TimeSync_GNSS_SR4.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Anaheim_Burbank_Phoenix_MME_Pool_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Anaheim_Burbank_Phoenix_MME_Pool_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Boston_Mobility_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Boston_Mobility_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Boston_SON_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Boston_SON_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/CSG_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/CSG_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_Multiple_ProvisionFile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_Multiple_ProvisionFile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_Multiple_ProvisionFiles-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_Multiple_ProvisionFiles-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_4.6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_4.6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_1-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_1-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_2-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_2-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_3-unormal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_3-unormal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Casa_Pico_ProvisionFile_Per_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Casa_Pico_ProvisionFile_Per_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/GPS_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/GPS_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/GTP_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/GTP_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/MobilityCDMA2000_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/MobilityCDMA2000_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/NeighborListProfile_64full.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/NeighborListProfile_64full.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/NeighbourListCDMA2000_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/NeighbourListCDMA2000_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/NeighbourList_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/NeighbourList_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Network_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Network_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/PerfMgmt_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/PerfMgmt_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/QoS_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/QoS_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/REM_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/REM_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/RadioAdvanced_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/RadioAdvanced_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Radio_B40_38941_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Radio_B40_38941_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Radio_B41_41176_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Radio_B41_41176_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/SCTP_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/SCTP_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/SecurityManagement_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/SecurityManagement_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/Self-HealingProfile_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/Self-HealingProfile_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/TR069_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/TR069_SR4.6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pico/SR4.6_profile/TimeSync_GNSS_SR4.6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/pico_upload/SR4.6_profile/TimeSync_GNSS_SR4.6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AeMSAutoTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AeMSAutoTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PEP8.md" beforeDir="false" afterPath="$PROJECT_DIR$/PEP8.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/case/@_online_process/test_0000_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/@_online_process/test_0000_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/case/@_online_process/test_0001_File_Management.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/@_online_process/test_0001_File_Management.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/case/AeMS_Settings/test_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/AeMS_Settings/test_configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/common/AeMSCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/AeMSCase.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/common/browser.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/browser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/page/AeMSSettingPage/UsersPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/AeMSSettingPage/UsersPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/page/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/LoginPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/page/basepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/basepage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/henb.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/henb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/case/AeMS_Settings/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/AeMSSettings/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/AeMSSettings/test_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/case/AeMS_Settings/test_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/AeMSSettings/test_configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/case/Northbound/test_northbound_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/case/Northbound/test_northbound_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/common/AeMSCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/aems_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/common/Browser.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/browser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/common/test_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/common/test_practice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/AeMSSettingPage/ConfigrurationPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/AeMSSettingPage/configuration_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/AeMSSettingPage/UsersPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/AeMSSettingPage/users_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/BasePage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/base_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/SmallCellMgtPage/FileMgtPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/SmallCellMgtPage/file_mgt_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/page/SmallCellMgtPage/ModelsPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/page/SmallCellMgtPage/models_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/suite/TestSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/suite/test_suite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/CSVHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/CSVHandler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/Config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/HeNB.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/henb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/HemsDB.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/aems_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/HttpClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/http_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/JsonFileHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/json_file_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/TimeHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/time_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/XmlHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/xml_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common/UTX.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common/utx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common/log.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common/log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common/mail.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common/mail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common/ssh.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common/ssh.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/case/@_online_process/test_0001_File_Management.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/common/AeMSCase.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-405">
-              <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/page/basepage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/test/page/AeMSSettingPage/UsersPage.py" />
-        <option value="$PROJECT_DIR$/test/page/LoginPage.py" />
-        <option value="$PROJECT_DIR$/utils/log.py" />
-        <option value="$PROJECT_DIR$/utils/henb.py" />
-        <option value="$PROJECT_DIR$/test/common/browser.py" />
-        <option value="$PROJECT_DIR$/config/config.yml" />
-        <option value="$PROJECT_DIR$/test/case/AeMS_Settings/test_configuration.py" />
-        <option value="$PROJECT_DIR$/test/page/basepage.py" />
-        <option value="$PROJECT_DIR$/utils/config.py" />
-        <option value="$PROJECT_DIR$/test/case/@_online_process/test_0000_model.py" />
-        <option value="$PROJECT_DIR$/test/case/@_online_process/test_0001_File_Management.py" />
-        <option value="$PROJECT_DIR$/test/common/AeMSCase.py" />
-        <option value="$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py" />
-      </list>
-    </option>
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -179,105 +52,22 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1986" />
-    <option name="y" value="118" />
-    <option name="width" value="1874" />
-    <option name="height" value="907" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="config" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="case" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="case" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="@_online_process" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="case" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="AeMS_Settings" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="page" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SmallCellManagemetPage" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="AeMSAutoTest" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="F:\pycharm\AeMSAutoTest" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="utils" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1WOCQO3nwXlWDBDSI1gv5BHQLts" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\pycharm\AeMSAutoTest\data\common" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_Users.TestUsers">
+  <component name="RunManager" selected="Python.test_suite">
     <configuration name="henb" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AeMSAutoTest" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -291,6 +81,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/henb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_suite" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AeMSAutoTest" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/suite" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/suite/test_suite.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -313,17 +124,17 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_Users.TestUsers" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test.case.AeMSSettings.test_users.TestUsers" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="AeMSAutoTest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/case/AeMS_Settings" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/case/AeMSSettings" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_Users.TestUsers&quot;" />
+      <option name="_new_target" value="&quot;test.case.AeMSSettings.test_users.TestUsers&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -341,29 +152,27 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_Users.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="AeMSAutoTest" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/case/AeMS_Settings" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_Users.TestUsers" />
+        <item itemvalue="Python.test_suite" />
+        <item itemvalue="Python tests.Unittests for test.case.AeMSSettings.test_users.TestUsers" />
         <item itemvalue="Python tests.Unittests for test_0001_File_Management.TestFileManagement" />
         <item itemvalue="Python tests.Unittests in test_0001_File_Management.py" />
         <item itemvalue="Python.henb" />
-        <item itemvalue="Python tests.Unittests in test_Users.py" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -410,169 +219,26 @@
       <configuration name="Unittests for test_Users.TestUsers" configurationId="tests" />
     </history-entry>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1780243" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27524972" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utils/HTMLTestRunner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5712">
-          <caret line="966" lean-forward="true" selection-start-line="966" selection-end-line="966" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/python/Lib/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="1021" column="13" selection-start-line="1021" selection-start-column="13" selection-end-line="1021" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/page/LoginPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="24" column="18" lean-forward="true" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/suite/runTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/unittest/__init__.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/henb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="120" column="24" lean-forward="true" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/ssh.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="68" column="20" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/common/browser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/python/Lib/abc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/page/AeMSSettingPage/UsersPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1383">
-          <caret line="55" column="64" lean-forward="true" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/case/AeMS_Settings/test_configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="65" column="41" lean-forward="true" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/page/SmallCellManagemetPage/FileManagementPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/case/@_online_process/test_0000_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/page/basepage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="62" selection-end-line="27" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/common/AeMSCase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/case/@_online_process/test_0001_File_Management.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/case/AeMS_Settings/test_Users.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="249" key="GridCell.Tab.0.bottom" timestamp="1579018387687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="249" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1579018387687" />
+    <state width="1899" height="249" key="GridCell.Tab.0.center" timestamp="1579018387686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="249" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1579018387686" />
+    <state width="1899" height="249" key="GridCell.Tab.0.left" timestamp="1579018387686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="249" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1579018387686" />
+    <state width="1899" height="249" key="GridCell.Tab.0.right" timestamp="1579018387686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="249" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1579018387686" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1579012811061">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579012811061" />
   </component>
 </project>

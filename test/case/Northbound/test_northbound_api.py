@@ -3,9 +3,9 @@
 
 import requests
 
-from utils.Config import Config
-from test.page.BasePage import BasePage
-from test.common.AeMSCase import AeMSCase
+from utils.config import Config
+from test.page.base_page import BasePage
+from test.common.aems_case import AeMSCase
 
 host = Config().get("AeMS").get("northbound_ip_address")
 northbound_user_config = Config().get("AeMS").get("northbound_user")

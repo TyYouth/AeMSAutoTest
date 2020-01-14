@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 from time import sleep
-from test.page.BasePage import BasePage
+from test.page.base_page import BasePage
 from utils.common.log import logger
 
 

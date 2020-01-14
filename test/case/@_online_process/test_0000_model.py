@@ -2,9 +2,9 @@
 # coding=utf-8
 import collections
 from time import sleep
-from test.common.AeMSCase import AeMSCase
-from test.page.SmallCellMgtPage.ModelsPage import ModelsPage
-from utils.HeNB import HeNB
+from test.common.aems_case import AeMSCase
+from test.page.SmallCellMgtPage.models_page import ModelsPage
+from utils.henb import HeNB
 
 driver = AeMSCase().driver
 models_page = ModelsPage(driver=driver)

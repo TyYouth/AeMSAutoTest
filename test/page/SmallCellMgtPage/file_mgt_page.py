@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-from test.page.BasePage import BasePage
-from utils.Config import DATA_PATH
+from test.page.base_page import BasePage
+from utils.config import DATA_PATH
 from utils.common.log import logger
 
 

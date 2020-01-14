@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, NoSuchFrameException, JavascriptException, \
     ScreenshotException
-from utils.Config import DRIVER_PATH, REPORT_PATH
+from utils.config import DRIVER_PATH, REPORT_PATH
 
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
@@ -132,8 +132,11 @@ class Browser(object):
             logger.error("can NOT find element by such a xpath")
             logger.exception(e.msg)
 
-    # The value is css
     def find_css(self, css_value=None):
+        """
+        :param css_value: css path value
+        :return: web element
+        """
         try:
             if css_value:
                 return self.driver.find_element(by=By.CSS_SELECTOR, value=css_value)
@@ -162,8 +165,7 @@ class Browser(object):
         except ScreenshotException as e:
             logger.exception(e.msg)
 
-# Encapsulate selenium method
-    # right click
+    # Encapsulate selenium method
     def right_click(self, web_element):
         ActionChains(self.driver).context_click(web_element).perform()
 

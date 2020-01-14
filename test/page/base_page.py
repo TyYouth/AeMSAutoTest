@@ -4,8 +4,8 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import ElementNotVisibleException, NoSuchElementException
 from utils.common.log import logger
-from utils.Config import DRIVER_PATH
-from test.common.Browser import Browser
+from utils.config import DRIVER_PATH
+from test.common.browser import Browser
 
 CHROME_DRIVER_PATH = os.path.join(DRIVER_PATH, 'chromedriver.exe')
 
@@ -142,10 +142,10 @@ class BasePage(Browser):
             logger.debug("click to select the check box or radio")
         time.sleep(0.25)
 
-    def prompt_msg(self, show_value=None):
+    def get_prompt_msg(self, show_value=None):
         """
-        # Most of the prompts include similar content
-        # <small class="help-block" ng-show="show value" >msg text</small>
+        Most of the prompts include similar content
+        <small class="help-block" ng-show="show value" >msg text</small>
         :param show_value: value of ng-show
         :return: str, prompt message
         """
@@ -311,7 +311,7 @@ class BasePage(Browser):
         """
         self.send_keys(input_text_ele, input_value)
         if is_false and (show_value is not None):
-            prompt_msg = self.prompt_msg(show_value)
+            prompt_msg = self.get_prompt_msg(show_value)
             return prompt_msg
 
     def act_upload_file(self, file_path):

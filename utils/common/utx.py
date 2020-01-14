@@ -6,7 +6,7 @@ import unittest
 from time import sleep
 from enum import Enum, unique
 from utils.common.log import logger
-from utils.Config import Config
+from utils.config import Config
 
 CASE_ID_FLAG = "__case_id__"
 CASE_INFO_FLAG = "__case_info__"

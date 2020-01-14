@@ -4,7 +4,7 @@ import csv
 import os
 from collections import defaultdict
 from utils.common.log import logger
-from utils.Config import COMMON_FILE
+from utils.config import COMMON_FILE
 
 alarm_file = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
 

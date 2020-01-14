@@ -4,10 +4,10 @@ import os
 from collections import defaultdict
 from utils.common.log import logger
 from utils.common.ssh import SSHSession
-from utils.Config import Config
-from utils.Config import COMMON_FILE
+from utils.config import Config
+from utils.config import COMMON_FILE
 from utils.CSVHandler import CsvReader
-from utils.JsonFileHandler import JsonConfig
+from utils.json_file_handler import JsonConfig
 
 ALARM_FILE = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
 VALUE_CHANGE = os.path.join(COMMON_FILE, 'common', 'TR069Packet', '4_value_change.xml')

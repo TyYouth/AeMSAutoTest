@@ -4,7 +4,7 @@ import paramiko
 from scp import SCPClient
 from time import sleep
 from utils.common.log import logger
-from utils.TimeHandler import DateTime
+from utils.time_handler import DateTime
 
 
 def to_str(bytes_or_str):

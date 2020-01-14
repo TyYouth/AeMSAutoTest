@@ -1,6 +1,6 @@
 from time import sleep
-from test.common.AeMSCase import AeMSCase
-from utils.common.UTX import tag, Tag
+from test.common.aems_case import AeMSCase
+from utils.common.utx import tag, Tag
 
 
 class Test(AeMSCase):
@@ -19,5 +19,3 @@ class Test(AeMSCase):
     def test_b_method(self):
         sleep(0.25)
         self.assertEqual(2 + 2, 3)
-
-

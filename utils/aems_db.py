@@ -2,7 +2,7 @@
 # coding=utf-8
 from collections import defaultdict
 from utils.common.log import logger
-from utils.Config import Config
+from utils.config import Config
 from utils.common.mysql import MysqlSession
 
 db_config = Config().get("AeMS").get("mysql")

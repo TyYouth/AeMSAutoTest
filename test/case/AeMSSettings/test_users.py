@@ -3,8 +3,8 @@
 
 from time import sleep
 from utils.common.log import logger
-from test.common.AeMSCase import AeMSCase
-from test.page.AeMSSettingPage.UsersPage import UsersPage
+from test.common.aems_case import AeMSCase
+from test.page.AeMSSettingPage.users_page import UsersPage
 
 driver = AeMSCase().driver
 users_page = UsersPage(driver=driver)
@@ -17,10 +17,10 @@ class TestUsers(AeMSCase):
         users_page.act_open_tab("AeMS Settings", "Users")
 
     def test_00100_user_prompt(self):
-        """test the tip of add user"""
+        """test the prompt of user input box"""
         users_page.action_fill_user_info(username='Admin')
         users_page.ok_btn()
-        prompt_msg = users_page.prompt_msg(show_value="isExisted")
+        prompt_msg = users_page.get_prompt_msg(show_value="isExisted")
         self.assertEqual("The name has already been existed", prompt_msg)
 
         input_values = ["ab", "abcdefg0123456789", "sdffa@ssq.c"]
@@ -32,7 +32,6 @@ class TestUsers(AeMSCase):
         elif self.version == "femto":
             v_prompt_msg_show_value = "setForm.username.$dirty && setForm.username.$invalid"
         for input_value in input_values:
-            prompt_msg = None
             logger.debug("to test input value: {}".format(input_value))
             prompt_msg = users_page.act_input_text(input_text_ele=username_input_text,
                                                    input_value=input_value,
@@ -46,7 +45,7 @@ class TestUsers(AeMSCase):
         """Test the tip of password"""
         users_page.action_fill_user_info(username="pwdTip")
         users_page.input_text(users_page.v_user_pwd_input_text, "aaaabbbb")
-        prompt_msg = users_page.prompt_msg(show_value="isNoPassVaild")
+        prompt_msg = users_page.get_prompt_msg(show_value="isNoPassVaild")
         self.assertEqual('At least two kinds of the combination of Uppercase letters, '
                          'Lowercase letters, Numbers, or Special characters(space key is not allow), '
                          'and the length between 8 and 20 characters.', prompt_msg)
@@ -55,12 +54,12 @@ class TestUsers(AeMSCase):
         users_page.input_text(users_page.v_confirm_pwd_input_text, "pwdTiptest")
         users_page.ok_btn()
         sleep(0.25)
-        prompt_msg = users_page.prompt_msg(show_value="isContainPassword")
+        prompt_msg = users_page.get_prompt_msg(show_value="isContainPassword")
         self.assertEqual('Password cannot contain user name !', prompt_msg)
 
         users_page.input_text(users_page.v_user_pwd_input_text, "Admin1111")
         users_page.input_text(users_page.v_confirm_pwd_input_text, "admin0101")
-        prompt_msg = users_page.prompt_msg(
+        prompt_msg = users_page.get_prompt_msg(
             show_value="modal.user.password && !isNoPassVaild && setForm.confirmpassword.$invalid")
         self.assertEqual('Passwords do not match', prompt_msg)
         users_page.cancel_btn()
@@ -72,24 +71,24 @@ class TestUsers(AeMSCase):
         users_page.send_keys(users_page.e_secondary_phone, '(444)-555-666')
         sleep(0.25)
 
-        prompt_msg_1 = users_page.prompt_msg(show_value='setForm.phone1.$dirty && setForm.phone1.$invalid')
+        prompt_msg_1 = users_page.get_prompt_msg(show_value='setForm.phone1.$dirty && setForm.phone1.$invalid')
         self.assertEqual('Incorrect phone number format', prompt_msg_1)
-        prompt_msg_2 = users_page.prompt_msg(show_value="setForm.phone2.$dirty && setForm.phone2.$invalid")
+        prompt_msg_2 = users_page.get_prompt_msg(show_value="setForm.phone2.$dirty && setForm.phone2.$invalid")
         self.assertEqual('Incorrect phone number format', prompt_msg_2)
 
         users_page.send_keys(users_page.e_primary_phone, "555")
         users_page.send_keys(users_page.e_secondary_phone, '555')
         sleep(0.25)
-        prompt_msg_1 = users_page.prompt_msg(show_value='setForm.phone1.$dirty && setForm.phone1.$invalid')
+        prompt_msg_1 = users_page.get_prompt_msg(show_value='setForm.phone1.$dirty && setForm.phone1.$invalid')
         self.assertEqual('Incorrect phone number format', prompt_msg_1)
-        prompt_msg_2 = users_page.prompt_msg(show_value="setForm.phone2.$dirty && setForm.phone2.$invalid")
+        prompt_msg_2 = users_page.get_prompt_msg(show_value="setForm.phone2.$dirty && setForm.phone2.$invalid")
         self.assertEqual('Incorrect phone number format', prompt_msg_2)
 
         users_page.send_keys(users_page.e_primary_phone, "(444)-555-6666")
         users_page.send_keys(users_page.e_secondary_phone, "(444)-555-6666")
         users_page.ok_btn()
         sleep(0.25)
-        prompt_msg = users_page.prompt_msg("isSame1")
+        prompt_msg = users_page.get_prompt_msg("isSame1")
         self.assertEqual('Phone2 should not be the same as Phone1', prompt_msg)
         sleep(0.25)
         users_page.cancel_btn()
