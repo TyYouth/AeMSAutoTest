@@ -6,7 +6,7 @@ import yaml
 BASE_PATH = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 CONFIG_PATH = os.path.join(BASE_PATH, 'config', 'config.yml')
 DRIVER_PATH = os.path.join(BASE_PATH, 'drivers')
-CASE_PATH = os.path.join(BASE_PATH, 'test', 'common')
+CASE_PATH = os.path.join(BASE_PATH, 'test', 'case')
 LOG_PATH = os.path.join(BASE_PATH, 'log')
 REPORT_PATH = os.path.join(BASE_PATH, 'report')
 REPORT_FILE = os.path.join(REPORT_PATH, 'report.html')
