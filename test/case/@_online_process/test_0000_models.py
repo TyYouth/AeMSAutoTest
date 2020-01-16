@@ -5,6 +5,7 @@ from time import sleep
 from test.common.aems_case import AeMSCase
 from test.page.SmallCellMgtPage.models_page import ModelsPage
 from utils.henb import HeNB
+from utils.common.utx import tag, Tag
 
 driver = AeMSCase().driver
 models_page = ModelsPage(driver=driver)
@@ -18,7 +19,8 @@ class TestModels(AeMSCase):
         if models_page.column_names is None:
             models_page.column_names = models_page.get_column_names()
 
-    def test_00000_model_is_exited(self):
+    @tag(Tag.HIGH)
+    def test_model_is_exited(self):
         """Test is the HeNB or simulator model was is existed or not"""
         device_info = HeNB().get_device_info()
         HeNB().close()
@@ -29,7 +31,8 @@ class TestModels(AeMSCase):
             models_page.act_add_model(model_name=model_name, model_info=device_info)
             models_page.ok_btn()
 
-    def test_00010_add_model(self):
+    @tag(Tag.HIGH)
+    def test_add_model(self):
         """Test model existed prompt"""
         device_info = HeNB().get_device_info()
         HeNB().close()

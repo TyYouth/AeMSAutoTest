@@ -18,7 +18,7 @@ class TestFileManagement(AeMSCase):
             AeMSCase.column_names = file_management_page.get_column_names()
 
     @tag(Tag.HIGH)
-    def test_0001_upload(self):
+    def test_upload(self):
         files = file_management_page.get_upload_files(self.version)
         # to upload all profile which format is .csv (end with csv)
         for file in files:
@@ -28,9 +28,6 @@ class TestFileManagement(AeMSCase):
                 file_management_page.find_xpath_by_text('button', 'Confirm').click()
                 file_management_page.get_alert_text_and_dismiss()
                 sleep(0.25)
-
-    def test_0002_test(self):
-        print(2)
 
     def tearDown(self):
         AeMSCase.tearDown(self)

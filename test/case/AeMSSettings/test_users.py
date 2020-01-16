@@ -5,6 +5,7 @@ from time import sleep
 from utils.common.log import logger
 from test.common.aems_case import AeMSCase
 from test.page.AeMSSettingPage.users_page import UsersPage
+from utils.common.utx import Tag, tag
 
 driver = AeMSCase().driver
 users_page = UsersPage(driver=driver)
@@ -16,7 +17,8 @@ class TestUsers(AeMSCase):
         AeMSCase.setUp(self)
         users_page.act_open_tab("AeMS Settings", "Users")
 
-    def test_00100_user_prompt(self):
+    @tag(Tag.MEDIUM)
+    def test_user_prompt(self):
         """test the prompt of user input box"""
         users_page.action_fill_user_info(username='Admin')
         users_page.ok_btn()
@@ -27,6 +29,7 @@ class TestUsers(AeMSCase):
         username_input_text = users_page.e_username
         except_wrong_username_prompt = 'required letters number or "_"(3 to 16 characters)'
         v_prompt_msg_show_value = None
+
         if self.version == "pico":
             v_prompt_msg_show_value = "setForm.user_name.$dirty && setForm.user_name.$invalid"
         elif self.version == "femto":
@@ -41,7 +44,8 @@ class TestUsers(AeMSCase):
             self.assertEqual(except_wrong_username_prompt, prompt_msg)
         users_page.cancel_btn()
 
-    def test_00110_pwd_prompt(self):
+    @tag(Tag.MEDIUM)
+    def test_pwd_prompt(self):
         """Test the tip of password"""
         users_page.action_fill_user_info(username="pwdTip")
         users_page.input_text(users_page.v_user_pwd_input_text, "aaaabbbb")
@@ -64,7 +68,8 @@ class TestUsers(AeMSCase):
         self.assertEqual('Passwords do not match', prompt_msg)
         users_page.cancel_btn()
 
-    def test_00120_phone_prompt(self):
+    @tag(Tag.MEDIUM)
+    def test_phone_prompt(self):
         """Test phone prompt"""
         users_page.action_fill_user_info(username='phoneTest')
         users_page.send_keys(users_page.e_primary_phone, "(444)-555-666")

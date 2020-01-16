@@ -6,7 +6,7 @@ from utils.common.log import logger
 from utils.common.ssh import SSHSession
 from utils.config import Config
 from utils.config import COMMON_FILE
-from utils.CSVHandler import CsvReader
+from utils.csv_handler import CsvReader
 from utils.json_file_handler import JsonConfig
 
 ALARM_FILE = os.path.join(COMMON_FILE, 'Alarm', 'AlarmDefinition_20190114_sxh.csv')
@@ -14,7 +14,7 @@ VALUE_CHANGE = os.path.join(COMMON_FILE, 'common', 'TR069Packet', '4_value_chang
 
 
 class NoSuchDeviceAlarm(Exception):
-    logger.exception("No such a Device Alarm")
+    pass
 
 
 class HeNB(SSHSession):
@@ -33,9 +33,9 @@ class HeNB(SSHSession):
         self.connect()
         self.device_info = defaultdict(dict)
 
-    def get_parameter_by_oam(self, param_name):
-        command = "echo {0}.get | {1}".format(param_name, self.oam_file_path)
-        respond = self.run_cmd(command)
+    def get_parameter_by_oam(self, param_name: str):
+        get_command = "echo {0}.get | {1}".format(param_name, self.oam_file_path)
+        respond = self.run_cmd(get_command)
         result = respond.split(" ")
         if result[0] == '0':
             logger.debug("the value of {} is {}".format(param_name, result[1]))
@@ -44,7 +44,7 @@ class HeNB(SSHSession):
             logger.error("Failed to get parameter {} by oam command, the respond is {}".format(param_name, respond))
             return False
 
-    def set_parameter_by_oam(self, param_name, param_val):
+    def set_parameter_by_oam(self, param_name: str, param_val):
         set_command = "echo {0}.set {1} | {2}".format(param_name, param_val, self.oam_file_path)
         self.run_cmd(set_command)
         apply_config = "echo l3.apply_config | {}".format(self.oam_file_path)
@@ -53,34 +53,31 @@ class HeNB(SSHSession):
         if set_respond == 0 and get_respond:
             return True
 
+    # sed, linux command base on Regular
+    # \s to match one space, \s* is for match unknown len space, /^ is for match start with
+    # sed -n "/^\s*use_ipv6\s*=/p" /config/l3/femtoconfig.ini
     def get_config(self, config_name, target_file_path, split_by="="):
         """
-        sed, linux command base on Regular
-        \s to match one space, \s* is for match unknown len space, /^ is for match start with
-        sed -n "/^\s*use_ipv6\s*=/p" /config/l3/femtoconfig.ini
-
         :param config_name:
         :param target_file_path:
         :param split_by:
         :return:
         """
-        command = r'sed -n "/^\s*{0}\s*{2}/p" {1}'.format(config_name, target_file_path, split_by)
-        logger.debug("try to get HeNB's config by command: {}".format(command))
-        respond = self.run_cmd(command)
+        get_command = r'sed -n "/^\s*{0}\s*{2}/p" {1}'.format(config_name, target_file_path, split_by)
+        # logger.debug("try to get HeNB's config by command: {}".format(command))
+        respond = self.run_cmd(get_command)
         _config_name, _config_value = respond.split(split_by)
-        # rstrip(".*") to dismiss .* 任意匹配符
-        if config_name.rstrip(".*") in _config_name:
+        if config_name in _config_name:
             logger.debug("The value of {} in {} is {}".format(config_name, target_file_path, _config_value))
             return _config_name.strip(), _config_value.strip()
         else:
             logger.error("Failed to get {} in {}, the respond is {}".format(config_name, target_file_path, respond))
             return False
 
+    # sed -i "/^\s*use_ipv6\s*=/c \use_ipv6=0" /config/l3/femtoconfig.ini  to replace content
+    # startswith \, like \use_ipv6
     def set_config(self, config_name: str, config_value: str, target_file_path: str, split_by="="):
         """
-        sed -i "/^\s*use_ipv6\s*=/c \use_ipv6=0" /config/l3/femtoconfig.ini
-        replace content startswith \, like \use_ipv6
-
         :param config_name:
         :param config_value: value you want to set
         :param target_file_path: path of config
@@ -143,40 +140,29 @@ class HeNB(SSHSession):
 
     def update_gps(self, latitude: str, longitude: str):
         gps_config_file = JsonConfig().get("parameters.csv").get("path")
-        latitude_name, current_latitude = self.get_config(config_name="FAP.GPS.LockedLatitude;INT;.*",
-                                                          target_file_path=gps_config_file,
-                                                          split_by=";;")
-        longitude_name, current_longitude = self.get_config(config_name="FAP.GPS.LockedLongitude;INT;.*",
-                                                            target_file_path=gps_config_file,
-                                                            split_by=";;")
-        self.set_config(config_name=latitude_name.replace("OAM", "DM"), config_value=str(latitude),
-                        target_file_path=gps_config_file,
-                        split_by=';;')
-        self.set_config(config_name=longitude_name.replace("OAM", "DM"), config_value=str(longitude),
-                        target_file_path=gps_config_file,
-                        split_by=';;')
-        current_scan_status = self.get_config(config_name="FAP.GPS.ScanStatus;STRING;.*",
-                                              target_file_path=gps_config_file,
-                                              split_by=";;")[0]
+        latitude_replace = r"sed -i '/FAP.GPS.LockedLatitude;INT;.*;;/c \FAP.GPS.LockedLatitude;INT;DM;R;1;0;1;0;;{}' {}"
+        self.run_cmd(latitude_replace.format(latitude, gps_config_file))
+        longitude_replace = r"sed -i '/FAP.GPS.LockedLongitude;INT;.*;;/c \FAP.GPS.LockedLongitude;INT;DM;R;1;0;1;0;;{}' {}"
+        self.run_cmd(longitude_replace.format(longitude, gps_config_file))
 
+        scan_status_replay = r"sed -i '/FAP.GPS.ScanStatus;INT;.*;;/c \FAP.GPS.ScanStatus;INT;DM;R;1;0;1;0;;{}'{} "
         if (latitude != '0') and (longitude != '0'):
-            self.set_config(config_name=current_scan_status.replace("OAM", "DM"), config_value="Success",
-                            target_file_path=gps_config_file, split_by=";;")
+            self.run_cmd(scan_status_replay.format("Success", gps_config_file))
         else:
-            self.set_config(config_name=current_scan_status.replace("OAM", "DM"), config_value="Indeterminate",
-                            target_file_path=gps_config_file, split_by=";;")
+            self.run_cmd(scan_status_replay.format("Indeterminate", gps_config_file))
 
     @staticmethod
-    def parse_alarm_definition(alarm_id):
+    def parse_alarm_definition(alarm_id: str):
         csv_reader = CsvReader(ALARM_FILE)
         csv_reader.close_file()
+        if alarm_id.startswith('1'):
+            logger.warning("The alarm id start with 1 is AeMS's alarm")
+
         if alarm_id in csv_reader.file_info.keys():
-            if alarm_id.startswith('1'):
-                logger.warning("The alarm id start with 1 is AeMS's alarm")
             alarm_dict = csv_reader.get_by_id_index(alarm_id)
             return alarm_dict
         else:
-            logger.exception(NoSuchDeviceAlarm)
+            logger.exception("No such a device alarm {}".format(alarm_id))
 
 
 if __name__ == "__main__":
@@ -186,14 +172,17 @@ if __name__ == "__main__":
     # henb.set_parameter_by_oam("SIB1.SIB1.TAC", 4369)
     henb.get_parameter_by_oam("SIB1.SIB1.TAC")
 
-    # config = henb.get_config('ManagementServer.Manufacturer', '/config/tr069/tr069_agent.ini')
+    name, value = henb.get_config('DeviceInfo.Manufacturer', '/config/tr069/tr069_agent.ini')
+    print("{} = {}".format(name, value))
 
-    # henb.get_device_info()
-    # print(henb.device_info['ProductClass'])
     henb.update_gps("42691842", "-71203095")
     henb.get_device_info()
     print(henb.device_info)
-    print(henb.device_info['Manufacturer'])
+    print(henb.device_info['Vendor'])
     henb.update_tr069_url()
+
+    alarm = henb.parse_alarm_definition("200s1")
+
     # henb.reboot()
-    # henb.close()
+    henb.close()
+

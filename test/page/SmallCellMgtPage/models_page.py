@@ -33,7 +33,7 @@ class ModelsPage(BasePage):
                 break
             if (vendor in whole_list[i]) and (oui in whole_list[i]) and (product_class in whole_list[i]):
                 is_exist = True
-                logger.warning("this model info {} corresponding model was existed".format(whole_list[i]))
+                logger.warning("this model info {} corresponding model was existed".format(model_info))
         sleep(0.25)
         return is_exist
 

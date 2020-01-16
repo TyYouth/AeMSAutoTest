@@ -139,7 +139,7 @@ class BasePage(Browser):
             checkbox_ele = self.find_xpath(value="//input[@ng-model='{0}']".format(model_name))
         if checkbox_ele.is_selected() != to_select:
             checkbox_ele.click()
-            logger.debug("click to select the check box or radio")
+            logger.debug("click to select the checkbox ")
         time.sleep(0.25)
 
     def get_prompt_msg(self, show_value=None):

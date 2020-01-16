@@ -118,11 +118,10 @@ class Meta(type):
         """
         funcs, cases = Tool.filter_test_case(func_names)
         for raw_case_name, raw_case in cases:
-            # 注入用例信息
             case_info = "{}.{}".format(raw_case.__module__, raw_case.__name__)
             setattr(raw_case, CASE_INFO_FLAG, case_info)
 
-            # 如果没有tag, 则默认注入Tag.All
+            # if Not Tag, add default Tag.ALL
             if not hasattr(raw_case, CASE_TAG_FLAG):
                 tags = {Tag.ALL}
                 setattr(raw_case, CASE_TAG_FLAG, tags)
@@ -131,8 +130,8 @@ class Meta(type):
             if not is_case_run(tags_list):
                 continue
 
-            # funcs.update(Tool.recreate_case(raw_case_name, raw_case))
-            # func_names = funcs
+            funcs.update(Tool.recreate_case(raw_case_name, raw_case))
+            func_names = funcs
         return super(Meta, mcs).__new__(mcs, class_name, bases, func_names)
 
 

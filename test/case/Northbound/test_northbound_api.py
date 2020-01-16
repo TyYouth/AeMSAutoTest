@@ -6,6 +6,7 @@ import requests
 from utils.config import Config
 from test.page.base_page import BasePage
 from test.common.aems_case import AeMSCase
+from utils.common.utx import Tag, tag
 
 host = Config().get("AeMS").get("northbound_ip_address")
 northbound_user_config = Config().get("AeMS").get("northbound_user")
@@ -28,19 +29,19 @@ class TestNorthboundAPI(AeMSCase):
         AeMSCase.setUp(self)
         # base_page.act_open_tab("Small Cell Management")
 
-    def test_00000_create_webservice_user(self):
+    def test_create_webservice_user(self):
         """1.to  adjust Webservice is exit or not"""
         pass
 
-    def test_00100_nodes_list(self):
+    def test_nodes_list(self):
         """Test api: /hems-web-ui/nbi/nodes/list"""
         list_url = build_url(nodes["alarms"])
         headers = {"Accept": 'application/json'}
         req = requests.get(list_url, auth=("ntapi", "casa1234"), verify=False, headers=headers)
-        print(req.url)
-        print(req.status_code)
-        print(req.json())
-        print(list_url)
+        # print(req.url)
+        # print(req.status_code)
+        # print(req.json())
+        # print(list_url)
 
     def tearDown(self):
         AeMSCase.tearDown(self)

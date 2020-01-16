@@ -33,7 +33,7 @@ class CsvReader(object):
         # if firs row is header
         if self.has_header:
             self.header = next(self.reader)
-            logger.debug("The header is {}".format(self.header))
+            logger.debug("The header of {} is {}".format(self._file.name, self.header))
             return self.header
 
     def build_dict_by_id(self):
@@ -54,10 +54,11 @@ class CsvReader(object):
         :param attr: attribute of header
         :return: index of attribute
         """
-        if self.header:
-            index = self.header.index(attr)
-            logger.debug("the index of {} is {}".format(attr, index))
-            return index
+        if self.header is None:
+            self.get_header()
+        index = self.header.index(attr)
+        logger.debug("the index of {} is {}".format(attr, index))
+        return index
 
     def read_row(self, row_num=0):
         self.re_reader()
@@ -72,6 +73,7 @@ class CsvReader(object):
 
 if __name__ == "__main__":
     csv_reader = CsvReader(alarm_file)
-    csv_reader.get_by_id_index('10009')
+    print(csv_reader.get_by_id_index('10001'))
+
     alarm_dict = csv_reader.build_dict_by_id()
-# keys = alarm_dict.keys()
+    print(alarm_dict)

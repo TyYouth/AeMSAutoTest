@@ -35,7 +35,7 @@ class SSHSession(object):
             self.sftp_client = paramiko.SFTPClient.from_transport(self.__transport)
         except paramiko.ssh_exception.SSHException:
             # the henb is not support SFTP and init transport as SCP"
-            logger.error("HeNB does NOT support sftp")
+            logger.warning("HeNB does NOT support sftp")
         except Exception as e:
             logger.exception(e)
 
@@ -67,14 +67,14 @@ class SSHSession(object):
         ssh_session.set_missing_host_key_policy(paramiko.AutoAddPolicy)
         ssh_session._transport = self.__transport
         stdin, stdout, stderr = ssh_session.exec_command(command)
-        output = to_str(stdout.read())
-        error = to_str(stderr.read())
+        output = to_str(stdout.read()).strip()
+        error = to_str(stderr.read()).strip()
         if error:
-            logger.error(error.strip())
-            return error.strip()
+            logger.error(error)
+            return error
         else:
-            logger.debug("The result of command '{}' is:\n {}".format(command, output.strip()))
-            return output.strip()
+            # logger.debug("The result of command '{}' is:\n {}".format(command, output))
+            return output
 
     def run_command_shell(self, *commands):
         receive = None
